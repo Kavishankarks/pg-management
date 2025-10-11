@@ -1,0 +1,19 @@
+{
+  "name": "bookpg",
+  "version": "1.0.0",
+  "description": "PG Booking Website - Full Stack Application",
+  "scripts": {
+    "install-all": "npm install --prefix backend && npm install --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "build:frontend": "npm run build --prefix frontend",
+    "start:backend": "npm start --prefix backend"
+  },
+  "keywords": ["pg", "booking", "react", "express", "postgresql"],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/bookpg.git"
+  }
+}
