@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookPG - Super Admin Wireframes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        h2 {
+            color: #7c3aed;
+            margin: 40px 0 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #7c3aed;
+            padding-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .screen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .wireframe {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .wireframe-header {
+            background: #faf5ff;
+            padding: 15px;
+            border-bottom: 2px solid #e9d5ff;
+        }
+
+        .wireframe-title {
+            font-weight: 600;
+            color: #6b21a8;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .wireframe-subtitle {
+            font-size: 13px;
+            color: #7c3aed;
+        }
+
+        .wireframe-body {
+            padding: 20px;
+            min-height: 400px;
+            background: #fafafa;
+        }
+
+        /* Admin-specific styling */
+        .admin-navbar {
+            background: linear-gradient(135deg, #7c3aed 0%, #6b21a8 100%);
+            height: 60px;
+            margin: -20px -20px 20px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            justify-content: space-between;
+        }
+
+        .admin-sidebar {
+            width: 200px;
+            background: #faf5ff;
+            border-right: 2px solid #e9d5ff;
+            margin: -20px 0 -20px -20px;
+            padding: 20px 0;
+            min-height: 500px;
+        }
+
+        .admin-layout {
+            display: flex;
+            gap: 0;
+            margin: -20px;
+        }
+
+        .admin-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .sidebar-item {
+            padding: 12px 20px;
+            font-size: 14px;
+            color: #6b21a8;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-item.active {
+            background: white;
+            border-left-color: #7c3aed;
+            font-weight: 600;
+        }
+
+        .wf-logo {
+            width: 120px;
+            height: 30px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .wf-nav-items {
+            display: flex;
+            gap: 10px;
+        }
+
+        .wf-nav-item {
+            width: 80px;
+            height: 30px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+        }
+
+        .wf-input {
+            width: 100%;
+            height: 45px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .wf-button {
+            width: 100%;
+            height: 48px;
+            background: #7c3aed;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .wf-button.secondary {
+            background: white;
+            border: 2px solid #7c3aed;
+            color: #7c3aed;
+        }
+
+        .wf-button.danger {
+            background: #ef4444;
+        }
+
+        .wf-button.success {
+            background: #10b981;
+        }
+
+        .wf-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .wf-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .wf-stat-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .wf-stat-card.purple {
+            background: linear-gradient(135deg, #7c3aed 0%, #6b21a8 100%);
+            border: none;
+            color: white;
+        }
+
+        .wf-stat-card.blue {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            border: none;
+            color: white;
+        }
+
+        .wf-stat-card.green {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border: none;
+            color: white;
+        }
+
+        .wf-stat-card.orange {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border: none;
+            color: white;
+        }
+
+        .wf-stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .wf-stat-card.purple .wf-stat-value,
+        .wf-stat-card.blue .wf-stat-value,
+        .wf-stat-card.green .wf-stat-value,
+        .wf-stat-card.orange .wf-stat-value {
+            color: white;
+        }
+
+        .wf-stat-label {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .wf-stat-card.purple .wf-stat-label,
+        .wf-stat-card.blue .wf-stat-label,
+        .wf-stat-card.green .wf-stat-label,
+        .wf-stat-card.orange .wf-stat-label {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .wf-table {
+            width: 100%;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .wf-table-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 15px;
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            align-items: center;
+        }
+
+        .wf-table-row:last-child {
+            border-bottom: none;
+        }
+
+        .wf-table-header {
+            background: #f1f5f9;
+            font-weight: 600;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        .wf-table-cell {
+            font-size: 14px;
+            color: #1e293b;
+        }
+
+        .wf-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .wf-badge.success {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .wf-badge.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .wf-badge.danger {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .wf-badge.info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .wf-badge.purple {
+            background: #f3e8ff;
+            color: #6b21a8;
+        }
+
+        .wf-tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .wf-tab {
+            padding: 12px 20px;
+            background: transparent;
+            color: #64748b;
+            font-size: 14px;
+            border-bottom: 3px solid transparent;
+        }
+
+        .wf-tab.active {
+            color: #7c3aed;
+            border-bottom-color: #7c3aed;
+            font-weight: 600;
+        }
+
+        .flow-note {
+            background: #faf5ff;
+            border-left: 4px solid #7c3aed;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .flow-note-title {
+            font-weight: 600;
+            color: #6b21a8;
+            margin-bottom: 8px;
+        }
+
+        .flow-note-content {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .flow-note ul, .flow-note ol {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .flow-note li {
+            margin-bottom: 4px;
+        }
+
+        .annotations {
+            background: #fffbeb;
+            border: 1px solid #fbbf24;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .annotations-title {
+            font-weight: 600;
+            color: #92400e;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .annotations ul {
+            margin-left: 20px;
+            color: #78350f;
+            font-size: 13px;
+        }
+
+        .annotations li {
+            margin-bottom: 4px;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        .action-btn.view {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .action-btn.edit {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .action-btn.delete {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .action-btn.approve {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .wf-chart {
+            height: 200px;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .wf-filter-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .wf-select {
+            padding: 10px 15px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .wf-search {
+            flex: 1;
+            min-width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BookPG - Super Admin Wireframes</h1>
+        <p class="subtitle">Complete wireframe specifications for Super Admin dashboard and management screens</p>
+
+        <h2>1. Admin Authentication</h2>
+
+        <div class="flow-note">
+            <div class="flow-note-title">Admin Access Overview</div>
+            <div class="flow-note-content">
+                <strong>Entry Points:</strong>
+                <ul>
+                    <li>Admin URL: /admin/login</li>
+                    <li>Pre-registered admin accounts only</li>
+                    <li>No public signup (invitation only)</li>
+                </ul>
+                <strong>Security Features:</strong>
+                <ul>
+                    <li>2FA authentication (recommended)</li>
+                    <li>IP whitelist (optional)</li>
+                    <li>Session timeout: 30 minutes</li>
+                    <li>Activity logging for all actions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="screen-grid">
+            <!-- Screen 1: Admin Login -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">1.1 Admin Login</div>
+                    <div class="wireframe-subtitle">Route: /admin/login</div>
+                </div>
+                <div class="wireframe-body">
+                    <div style="max-width: 400px; margin: 60px auto;">
+                        <div style="text-align: center; margin-bottom: 40px;">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #7c3aed, #6b21a8); border-radius: 16px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                                <div style="width: 40px; height: 40px; background: white; border-radius: 8px;"></div>
+                            </div>
+                            <div style="font-size: 28px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Admin Portal</div>
+                            <div style="font-size: 14px; color: #64748b;">BookPG Management Dashboard</div>
+                        </div>
+
+                        <div class="wf-input">Email Address</div>
+                        <div class="wf-input">Password</div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin: 15px 0;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div style="width: 18px; height: 18px; border: 2px solid #cbd5e1; border-radius: 3px;"></div>
+                                <span style="font-size: 13px; color: #64748b;">Remember me</span>
+                            </div>
+                            <span style="font-size: 13px; color: #7c3aed; font-weight: 600;">Forgot Password?</span>
+                        </div>
+
+                        <div class="wf-button">Login to Dashboard</div>
+
+                        <div style="margin-top: 30px; padding: 15px; background: #fef3c7; border: 2px solid #f59e0b; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 12px; color: #92400e; font-weight: 500;">Admin access only</div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Secure admin-only login</li>
+                            <li>Email verification required</li>
+                            <li>2FA support (Google Authenticator)</li>
+                            <li>Failed login tracking (max 3 attempts)</li>
+                            <li>IP logging for security</li>
+                            <li>Session management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>2. Admin Dashboard</h2>
+
+        <div class="screen-grid">
+            <!-- Screen 2: Dashboard Overview -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">2.1 Dashboard Overview</div>
+                    <div class="wireframe-subtitle">Route: /admin/dashboard</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="admin-layout">
+                        <div class="admin-sidebar">
+                            <div style="padding: 0 20px 20px; border-bottom: 1px solid #e9d5ff; margin-bottom: 10px;">
+                                <div style="font-weight: 600; color: #6b21a8; font-size: 16px;">BookPG Admin</div>
+                            </div>
+                            <div class="sidebar-item active">Dashboard</div>
+                            <div class="sidebar-item">Users</div>
+                            <div class="sidebar-item">Owners</div>
+                            <div class="sidebar-item">Properties</div>
+                            <div class="sidebar-item">Bookings</div>
+                            <div class="sidebar-item">Payments</div>
+                            <div class="sidebar-item">Analytics</div>
+                            <div class="sidebar-item">Settings</div>
+                        </div>
+                        <div class="admin-content">
+                            <div style="margin-bottom: 20px;">
+                                <div style="font-size: 24px; font-weight: 700; color: #1e293b;">Dashboard</div>
+                                <div style="font-size: 14px; color: #64748b;">Overview of platform metrics</div>
+                            </div>
+
+                            <div class="wf-stats-grid">
+                                <div class="wf-stat-card purple">
+                                    <div class="wf-stat-value">1,234</div>
+                                    <div class="wf-stat-label">Total Users</div>
+                                </div>
+                                <div class="wf-stat-card blue">
+                                    <div class="wf-stat-value">156</div>
+                                    <div class="wf-stat-label">Total Owners</div>
+                                </div>
+                                <div class="wf-stat-card green">
+                                    <div class="wf-stat-value">342</div>
+                                    <div class="wf-stat-label">Total Properties</div>
+                                </div>
+                                <div class="wf-stat-card orange">
+                                    <div class="wf-stat-value">₹2.5L</div>
+                                    <div class="wf-stat-label">Monthly Revenue</div>
+                                </div>
+                            </div>
+
+                            <div class="wf-chart">
+                                Revenue Chart (Last 30 Days)
+                            </div>
+
+                            <div style="font-size: 16px; font-weight: 600; color: #1e293b; margin-bottom: 15px;">Recent Activities</div>
+                            <div class="wf-card" style="padding: 12px;">
+                                <div style="font-size: 13px; color: #64748b; margin-bottom: 6px;">5 minutes ago</div>
+                                <div style="font-size: 14px; color: #1e293b;">New property listed by <strong>John Doe</strong></div>
+                            </div>
+                            <div class="wf-card" style="padding: 12px;">
+                                <div style="font-size: 13px; color: #64748b; margin-bottom: 6px;">15 minutes ago</div>
+                                <div style="font-size: 14px; color: #1e293b;">New user registered: <strong>rahul@example.com</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Real-time metrics</li>
+                            <li>Revenue charts (daily/weekly/monthly)</li>
+                            <li>Recent activity feed</li>
+                            <li>Quick actions</li>
+                            <li>Pending approvals count</li>
+                            <li>System health indicators</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 3: Admin Profile -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">2.2 Admin Profile</div>
+                    <div class="wireframe-subtitle">Route: /admin/profile</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="admin-layout">
+                        <div class="admin-sidebar">
+                            <div style="padding: 0 20px 20px; border-bottom: 1px solid #e9d5ff; margin-bottom: 10px;">
+                                <div style="font-weight: 600; color: #6b21a8; font-size: 16px;">BookPG Admin</div>
+                            </div>
+                            <div class="sidebar-item">Dashboard</div>
+                            <div class="sidebar-item active">Profile</div>
+                            <div class="sidebar-item">Users</div>
+                            <div class="sidebar-item">Settings</div>
+                        </div>
+                        <div class="admin-content">
+                            <div style="margin-bottom: 20px;">
+                                <div style="font-size: 24px; font-weight: 700; color: #1e293b;">My Profile</div>
+                                <div style="font-size: 14px; color: #64748b;">Manage your admin account</div>
+                            </div>
+
+                            <div class="wf-card">
+                                <div style="display: flex; gap: 20px; align-items: start; margin-bottom: 20px;">
+                                    <div style="width: 100px; height: 100px; background: #e2e8f0; border-radius: 50%; flex-shrink: 0;"></div>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 20px; font-weight: 600; color: #1e293b; margin-bottom: 4px;">Admin User</div>
+                                        <div style="font-size: 14px; color: #64748b; margin-bottom: 12px;">admin@bookpg.com</div>
+                                        <div class="wf-badge purple">Super Admin</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="font-size: 14px; font-weight: 500; color: #475569; margin-bottom: 8px;">Full Name</div>
+                            <div class="wf-input">Admin User</div>
+
+                            <div style="font-size: 14px; font-weight: 500; color: #475569; margin-bottom: 8px;">Email Address</div>
+                            <div class="wf-input">admin@bookpg.com</div>
+
+                            <div style="font-size: 14px; font-weight: 500; color: #475569; margin-bottom: 8px;">Phone Number</div>
+                            <div class="wf-input">+91 98765 43210</div>
+
+                            <div class="wf-button">Save Changes</div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Update personal information</li>
+                            <li>Change password</li>
+                            <li>Enable/disable 2FA</li>
+                            <li>Activity log viewer</li>
+                            <li>Session management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>3. User Management</h2>
+
+        <div class="screen-grid">
+            <!-- Screen 4: All Users -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">3.1 User Management</div>
+                    <div class="wireframe-subtitle">Route: /admin/users</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="admin-layout">
+                        <div class="admin-sidebar">
+                            <div style="padding: 0 20px 20px; border-bottom: 1px solid #e9d5ff; margin-bottom: 10px;">
+                                <div style="font-weight: 600; color: #6b21a8; font-size: 16px;">BookPG Admin</div>
+                            </div>
+                            <div class="sidebar-item">Dashboard</div>
+                            <div class="sidebar-item active">Users</div>
+                            <div class="sidebar-item">Owners</div>
+                            <div class="sidebar-item">Properties</div>
+                        </div>
+                        <div class="admin-content">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                <div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #1e293b;">Users</div>
+                                    <div style="font-size: 14px; color: #64748b;">Manage all registered users (1,234)</div>
+                                </div>
+                                <div class="wf-button" style="width: auto; padding: 0 20px; height: 40px;">+ Add User</div>
+                            </div>
+
+                            <div class="wf-filter-bar">
+                                <div class="wf-input wf-search" style="margin: 0;">Search users...</div>
+                                <div class="wf-select">All Roles</div>
+                                <div class="wf-select">All Status</div>
+                                <div class="wf-select">Sort by: Newest</div>
+                            </div>
+
+                            <div class="wf-table">
+                                <div class="wf-table-row wf-table-header">
+                                    <div>User</div>
+                                    <div>Role</div>
+                                    <div>Status</div>
+                                    <div>Actions</div>
+                                </div>
+                                <div class="wf-table-row">
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600; margin-bottom: 2px;">Rahul Kumar</div>
+                                        <div style="font-size: 12px; color: #64748b;">rahul@example.com</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="wf-badge info">User</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="wf-badge success">Active</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="action-btn view">View</div>
+                                        <div class="action-btn delete">Delete</div>
+                                    </div>
+                                </div>
+                                <div class="wf-table-row">
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600; margin-bottom: 2px;">Priya Sharma</div>
+                                        <div style="font-size: 12px; color: #64748b;">priya@example.com</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="wf-badge info">User</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="wf-badge success">Active</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="action-btn view">View</div>
+                                        <div class="action-btn delete">Delete</div>
+                                    </div>
+                                </div>
+                                <div class="wf-table-row">
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600; margin-bottom: 2px;">Amit Patel</div>
+                                        <div style="font-size: 12px; color: #64748b;">amit@example.com</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="wf-badge info">User</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="wf-badge danger">Suspended</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="action-btn view">View</div>
+                                        <div class="action-btn delete">Delete</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Search by name, email, phone</li>
+                            <li>Filter by role, status, date</li>
+                            <li>Bulk actions (delete, suspend)</li>
+                            <li>Export to CSV</li>
+                            <li>View user details</li>
+                            <li>Suspend/activate users</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 5: User Analytics -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">3.2 User Analytics</div>
+                    <div class="wireframe-subtitle">Route: /admin/analytics/users</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="admin-layout">
+                        <div class="admin-sidebar">
+                            <div style="padding: 0 20px 20px; border-bottom: 1px solid #e9d5ff; margin-bottom: 10px;">
+                                <div style="font-weight: 600; color: #6b21a8; font-size: 16px;">BookPG Admin</div>
+                            </div>
+                            <div class="sidebar-item">Dashboard</div>
+                            <div class="sidebar-item">Users</div>
+                            <div class="sidebar-item active">Analytics</div>
+                        </div>
+                        <div class="admin-content">
+                            <div style="margin-bottom: 20px;">
+                                <div style="font-size: 24px; font-weight: 700; color: #1e293b;">User Analytics</div>
+                                <div style="font-size: 14px; color: #64748b;">Insights into user behavior and growth</div>
+                            </div>
+
+                            <div class="wf-filter-bar">
+                                <div class="wf-select">Last 30 Days</div>
+                                <div class="wf-select">All Users</div>
+                            </div>
+
+                            <div class="wf-stats-grid">
+                                <div class="wf-stat-card">
+                                    <div class="wf-stat-value">1,234</div>
+                                    <div class="wf-stat-label">Total Users</div>
+                                    <div style="font-size: 11px; color: #10b981; margin-top: 6px;">↑ 12% vs last month</div>
+                                </div>
+                                <div class="wf-stat-card">
+                                    <div class="wf-stat-value">89</div>
+                                    <div class="wf-stat-label">New Users (30d)</div>
+                                    <div style="font-size: 11px; color: #10b981; margin-top: 6px;">↑ 23% vs last month</div>
+                                </div>
+                                <div class="wf-stat-card">
+                                    <div class="wf-stat-value">67%</div>
+                                    <div class="wf-stat-label">Active Users</div>
+                                    <div style="font-size: 11px; color: #ef4444; margin-top: 6px;">↓ 5% vs last month</div>
+                                </div>
+                            </div>
+
+                            <div class="wf-chart">
+                                User Registration Trend
+                            </div>
+
+                            <div class="wf-chart">
+                                User Engagement Metrics
+                            </div>
+
+                            <div style="font-size: 16px; font-weight: 600; color: #1e293b; margin-bottom: 15px;">Top Cities</div>
+                            <div class="wf-table">
+                                <div class="wf-table-row wf-table-header">
+                                    <div>City</div>
+                                    <div>Users</div>
+                                    <div>Growth</div>
+                                    <div>Percentage</div>
+                                </div>
+                                <div class="wf-table-row">
+                                    <div class="wf-table-cell">Bangalore</div>
+                                    <div class="wf-table-cell">456</div>
+                                    <div class="wf-table-cell" style="color: #10b981;">↑ 15%</div>
+                                    <div class="wf-table-cell">37%</div>
+                                </div>
+                                <div class="wf-table-row">
+                                    <div class="wf-table-cell">Mumbai</div>
+                                    <div class="wf-table-cell">342</div>
+                                    <div class="wf-table-cell" style="color: #10b981;">↑ 8%</div>
+                                    <div class="wf-table-cell">28%</div>
+                                </div>
+                                <div class="wf-table-row">
+                                    <div class="wf-table-cell">Delhi</div>
+                                    <div class="wf-table-cell">198</div>
+                                    <div class="wf-table-cell" style="color: #ef4444;">↓ 3%</div>
+                                    <div class="wf-table-cell">16%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>User growth charts</li>
+                            <li>Active vs inactive users</li>
+                            <li>City-wise distribution</li>
+                            <li>Engagement metrics</li>
+                            <li>Retention analysis</li>
+                            <li>Export reports</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>4. Owner Management</h2>
+
+        <div class="screen-grid">
+            <!-- Screen 6: All Owners -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">4.1 Owner Management</div>
+                    <div class="wireframe-subtitle">Route: /admin/owners</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="admin-layout">
+                        <div class="admin-sidebar">
+                            <div style="padding: 0 20px 20px; border-bottom: 1px solid #e9d5ff; margin-bottom: 10px;">
+                                <div style="font-weight: 600; color: #6b21a8; font-size: 16px;">BookPG Admin</div>
+                            </div>
+                            <div class="sidebar-item">Dashboard</div>
+                            <div class="sidebar-item">Users</div>
+                            <div class="sidebar-item active">Owners</div>
+                            <div class="sidebar-item">Properties</div>
+                        </div>
+                        <div class="admin-content">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                <div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #1e293b;">Owners</div>
+                                    <div style="font-size: 14px; color: #64748b;">Manage all property owners (156)</div>
+                                </div>
+                            </div>
+
+                            <div class="wf-filter-bar">
+                                <div class="wf-input wf-search" style="margin: 0;">Search owners...</div>
+                                <div class="wf-select">All Status</div>
+                                <div class="wf-select">Sort by: Properties</div>
+                            </div>
+
+                            <div class="wf-table">
+                                <div class="wf-table-row wf-table-header">
+                                    <div>Owner</div>
+                                    <div>Properties</div>
+                                    <div>Status</div>
+                                    <div>Actions</div>
+                                </div>
+                                <div class="wf-table-row">
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600; margin-bottom: 2px;">John Doe</div>
+                                        <div style="font-size: 12px; color: #64748b;">john@example.com</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600;">3</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="wf-badge success">Verified</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="action-btn view">View</div>
+                                        <div class="action-btn edit">Edit</div>
+                                    </div>
+                                </div>
+                                <div class="wf-table-row">
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600; margin-bottom: 2px;">Sarah Wilson</div>
+                                        <div style="font-size: 12px; color: #64748b;">sarah@example.com</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600;">5</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="wf-badge success">Verified</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="action-btn view">View</div>
+                                        <div class="action-btn edit">Edit</div>
+                                    </div>
+                                </div>
+                                <div class="wf-table-row">
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600; margin-bottom: 2px;">Mike Brown</div>
+                                        <div style="font-size: 12px; color: #64748b;">mike@example.com</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600;">1</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="wf-badge warning">Pending</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="action-btn view">View</div>
+                                        <div class="action-btn approve">Verify</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>View all owners</li>
+                            <li>Search and filter</li>
+                            <li>Verify/unverify owners</li>
+                            <li>View owner properties</li>
+                            <li>Suspend owner account</li>
+                            <li>Revenue by owner</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>5. Property Management & Approvals</h2>
+
+        <div class="screen-grid">
+            <!-- Screen 7: All Properties -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">5.1 All Properties</div>
+                    <div class="wireframe-subtitle">Route: /admin/properties</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="admin-layout">
+                        <div class="admin-sidebar">
+                            <div style="padding: 0 20px 20px; border-bottom: 1px solid #e9d5ff; margin-bottom: 10px;">
+                                <div style="font-weight: 600; color: #6b21a8; font-size: 16px;">BookPG Admin</div>
+                            </div>
+                            <div class="sidebar-item">Dashboard</div>
+                            <div class="sidebar-item">Owners</div>
+                            <div class="sidebar-item active">Properties</div>
+                            <div class="sidebar-item">Bookings</div>
+                        </div>
+                        <div class="admin-content">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                <div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #1e293b;">Properties</div>
+                                    <div style="font-size: 14px; color: #64748b;">Manage all PG listings (342)</div>
+                                </div>
+                                <div style="background: #fef3c7; padding: 8px 16px; border-radius: 6px; font-weight: 600; color: #92400e; font-size: 14px;">12 Pending Approval</div>
+                            </div>
+
+                            <div class="wf-filter-bar">
+                                <div class="wf-input wf-search" style="margin: 0;">Search properties...</div>
+                                <div class="wf-select">All Status</div>
+                                <div class="wf-select">All Cities</div>
+                                <div class="wf-select">Sort by: Newest</div>
+                            </div>
+
+                            <div class="wf-table">
+                                <div class="wf-table-row wf-table-header">
+                                    <div>Property</div>
+                                    <div>Owner</div>
+                                    <div>Status</div>
+                                    <div>Actions</div>
+                                </div>
+                                <div class="wf-table-row">
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600; margin-bottom: 2px;">Sunrise Boys PG</div>
+                                        <div style="font-size: 12px; color: #64748b;">MG Road, Bangalore • ₹8,000</div>
+                                    </div>
+                                    <div class="wf-table-cell">John Doe</div>
+                                    <div class="wf-table-cell">
+                                        <div class="wf-badge success">Active</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="action-btn view">View</div>
+                                        <div class="action-btn edit">Edit</div>
+                                    </div>
+                                </div>
+                                <div class="wf-table-row">
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600; margin-bottom: 2px;">Modern Living PG</div>
+                                        <div style="font-size: 12px; color: #64748b;">Koramangala, Bangalore • ₹15,000</div>
+                                    </div>
+                                    <div class="wf-table-cell">Sarah Wilson</div>
+                                    <div class="wf-table-cell">
+                                        <div class="wf-badge warning">Pending Review</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="action-btn view">View</div>
+                                        <div class="action-btn approve">Approve</div>
+                                    </div>
+                                </div>
+                                <div class="wf-table-row">
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600; margin-bottom: 2px;">Elite Ladies PG</div>
+                                        <div style="font-size: 12px; color: #64748b;">HSR Layout, Bangalore • ₹10,000</div>
+                                    </div>
+                                    <div class="wf-table-cell">Mike Brown</div>
+                                    <div class="wf-table-cell">
+                                        <div class="wf-badge danger">Rejected</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="action-btn view">View</div>
+                                        <div class="action-btn delete">Delete</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>View all properties</li>
+                            <li>Approve/reject new listings</li>
+                            <li>Edit property details</li>
+                            <li>Deactivate properties</li>
+                            <li>View property analytics</li>
+                            <li>Bulk actions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 8: Approve Hosting Request -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">5.2 Approve Hosting Request</div>
+                    <div class="wireframe-subtitle">Route: /admin/properties/:id/review</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="admin-layout">
+                        <div class="admin-sidebar">
+                            <div style="padding: 0 20px 20px; border-bottom: 1px solid #e9d5ff; margin-bottom: 10px;">
+                                <div style="font-weight: 600; color: #6b21a8; font-size: 16px;">BookPG Admin</div>
+                            </div>
+                            <div class="sidebar-item">Dashboard</div>
+                            <div class="sidebar-item active">Properties</div>
+                        </div>
+                        <div class="admin-content">
+                            <div style="margin-bottom: 20px;">
+                                <div style="font-size: 24px; font-weight: 700; color: #1e293b;">Review Property</div>
+                                <div style="font-size: 14px; color: #64748b;">Approve or reject hosting request</div>
+                            </div>
+
+                            <div class="wf-card">
+                                <div style="font-size: 18px; font-weight: 600; color: #1e293b; margin-bottom: 15px;">Property Details</div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                                    <div>
+                                        <div style="font-size: 12px; color: #64748b; margin-bottom: 4px;">Property Name</div>
+                                        <div style="font-size: 14px; font-weight: 600; color: #1e293b;">Modern Living PG</div>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 12px; color: #64748b; margin-bottom: 4px;">Owner</div>
+                                        <div style="font-size: 14px; font-weight: 600; color: #1e293b;">Sarah Wilson</div>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 12px; color: #64748b; margin-bottom: 4px;">Location</div>
+                                        <div style="font-size: 14px; font-weight: 600; color: #1e293b;">Koramangala, Bangalore</div>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 12px; color: #64748b; margin-bottom: 4px;">Price</div>
+                                        <div style="font-size: 14px; font-weight: 600; color: #1e293b;">₹15,000/month</div>
+                                    </div>
+                                </div>
+
+                                <div style="border-top: 1px solid #e2e8f0; padding-top: 15px; margin-top: 15px;">
+                                    <div style="font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 10px;">Photos (5)</div>
+                                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                                        <div style="aspect-ratio: 16/9; background: #e2e8f0; border-radius: 6px;"></div>
+                                        <div style="aspect-ratio: 16/9; background: #e2e8f0; border-radius: 6px;"></div>
+                                        <div style="aspect-ratio: 16/9; background: #e2e8f0; border-radius: 6px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="wf-card">
+                                <div style="font-size: 16px; font-weight: 600; color: #1e293b; margin-bottom: 10px;">Review Checklist</div>
+                                <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: #f8fafc; border-radius: 6px; margin-bottom: 8px;">
+                                    <div style="width: 20px; height: 20px; background: #10b981; border-radius: 4px;"></div>
+                                    <div style="font-size: 14px; color: #475569;">Photos are clear and appropriate</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: #f8fafc; border-radius: 6px; margin-bottom: 8px;">
+                                    <div style="width: 20px; height: 20px; background: #10b981; border-radius: 4px;"></div>
+                                    <div style="font-size: 14px; color: #475569;">Location details are valid</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: #f8fafc; border-radius: 6px; margin-bottom: 8px;">
+                                    <div style="width: 20px; height: 20px; background: #10b981; border-radius: 4px;"></div>
+                                    <div style="font-size: 14px; color: #475569;">Amenities list is reasonable</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: #f8fafc; border-radius: 6px;">
+                                    <div style="width: 20px; height: 20px; background: #10b981; border-radius: 4px;"></div>
+                                    <div style="font-size: 14px; color: #475569;">Owner profile is complete</div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 20px;">
+                                <div style="font-size: 14px; font-weight: 500; color: #475569; margin-bottom: 8px;">Admin Notes (Optional)</div>
+                                <div style="width: 100%; height: 80px; background: white; border: 2px solid #e2e8f0; border-radius: 6px; padding: 12px; color: #94a3b8; font-size: 14px;">Add any notes or feedback...</div>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 20px;">
+                                <div class="wf-button secondary">Cancel</div>
+                                <div class="wf-button danger">Reject</div>
+                                <div class="wf-button success">Approve</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>View all property details</li>
+                            <li>Review photos</li>
+                            <li>Verify location on map</li>
+                            <li>Check owner credentials</li>
+                            <li>Add rejection reason</li>
+                            <li>Email notification on approval/rejection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>6. Payment Integration & Management</h2>
+
+        <div class="screen-grid">
+            <!-- Screen 9: Payment Dashboard -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">6.1 Payment Management</div>
+                    <div class="wireframe-subtitle">Route: /admin/payments</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="admin-layout">
+                        <div class="admin-sidebar">
+                            <div style="padding: 0 20px 20px; border-bottom: 1px solid #e9d5ff; margin-bottom: 10px;">
+                                <div style="font-weight: 600; color: #6b21a8; font-size: 16px;">BookPG Admin</div>
+                            </div>
+                            <div class="sidebar-item">Dashboard</div>
+                            <div class="sidebar-item">Properties</div>
+                            <div class="sidebar-item active">Payments</div>
+                        </div>
+                        <div class="admin-content">
+                            <div style="margin-bottom: 20px;">
+                                <div style="font-size: 24px; font-weight: 700; color: #1e293b;">Payment Management</div>
+                                <div style="font-size: 14px; color: #64748b;">Track and manage all transactions</div>
+                            </div>
+
+                            <div class="wf-stats-grid">
+                                <div class="wf-stat-card green">
+                                    <div class="wf-stat-value">₹2.5L</div>
+                                    <div class="wf-stat-label">Total Revenue (30d)</div>
+                                </div>
+                                <div class="wf-stat-card orange">
+                                    <div class="wf-stat-value">₹45K</div>
+                                    <div class="wf-stat-label">Pending Payouts</div>
+                                </div>
+                                <div class="wf-stat-card purple">
+                                    <div class="wf-stat-value">₹12K</div>
+                                    <div class="wf-stat-label">Platform Commission</div>
+                                </div>
+                            </div>
+
+                            <div style="font-size: 16px; font-weight: 600; color: #1e293b; margin: 20px 0 15px;">Owner Payments</div>
+                            <div class="wf-table">
+                                <div class="wf-table-row wf-table-header">
+                                    <div>Owner</div>
+                                    <div>Amount</div>
+                                    <div>Status</div>
+                                    <div>Actions</div>
+                                </div>
+                                <div class="wf-table-row">
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600; margin-bottom: 2px;">John Doe</div>
+                                        <div style="font-size: 12px; color: #64748b;">Commission: Feb 2025</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600;">₹5,000</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="wf-badge warning">Pending</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="action-btn approve">Mark Paid</div>
+                                    </div>
+                                </div>
+                                <div class="wf-table-row">
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600; margin-bottom: 2px;">Sarah Wilson</div>
+                                        <div style="font-size: 12px; color: #64748b;">Commission: Feb 2025</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div style="font-weight: 600;">₹8,500</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="wf-badge success">Paid</div>
+                                    </div>
+                                    <div class="wf-table-cell">
+                                        <div class="action-btn view">View Receipt</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Track all transactions</li>
+                            <li>Owner commission payments</li>
+                            <li>Payment gateway integration</li>
+                            <li>Generate invoices</li>
+                            <li>Refund management</li>
+                            <li>Export financial reports</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>7. System Settings</h2>
+
+        <div class="screen-grid">
+            <!-- Screen 10: Settings -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">7.1 System Settings</div>
+                    <div class="wireframe-subtitle">Route: /admin/settings</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="admin-layout">
+                        <div class="admin-sidebar">
+                            <div style="padding: 0 20px 20px; border-bottom: 1px solid #e9d5ff; margin-bottom: 10px;">
+                                <div style="font-weight: 600; color: #6b21a8; font-size: 16px;">BookPG Admin</div>
+                            </div>
+                            <div class="sidebar-item">Dashboard</div>
+                            <div class="sidebar-item">Users</div>
+                            <div class="sidebar-item active">Settings</div>
+                        </div>
+                        <div class="admin-content">
+                            <div style="margin-bottom: 20px;">
+                                <div style="font-size: 24px; font-weight: 700; color: #1e293b;">System Settings</div>
+                                <div style="font-size: 14px; color: #64748b;">Configure platform settings</div>
+                            </div>
+
+                            <div class="wf-tabs">
+                                <div class="wf-tab active">General</div>
+                                <div class="wf-tab">Payment</div>
+                                <div class="wf-tab">Email</div>
+                                <div class="wf-tab">Security</div>
+                            </div>
+
+                            <div class="wf-card">
+                                <div style="font-size: 16px; font-weight: 600; color: #1e293b; margin-bottom: 15px;">Platform Configuration</div>
+
+                                <div style="font-size: 14px; font-weight: 500; color: #475569; margin-bottom: 8px;">Platform Name</div>
+                                <div class="wf-input">BookPG</div>
+
+                                <div style="font-size: 14px; font-weight: 500; color: #475569; margin-bottom: 8px;">Support Email</div>
+                                <div class="wf-input">support@bookpg.com</div>
+
+                                <div style="font-size: 14px; font-weight: 500; color: #475569; margin-bottom: 8px;">Commission Rate (%)</div>
+                                <div class="wf-input">10</div>
+
+                                <div style="font-size: 14px; font-weight: 500; color: #475569; margin-bottom: 8px;">Auto-approve Properties</div>
+                                <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 6px; margin-bottom: 15px;">
+                                    <div style="width: 50px; height: 28px; background: #e2e8f0; border-radius: 14px; position: relative;">
+                                        <div style="width: 24px; height: 24px; background: white; border-radius: 50%; position: absolute; top: 2px; left: 2px;"></div>
+                                    </div>
+                                    <div style="font-size: 14px; color: #64748b;">Disabled (Manual review required)</div>
+                                </div>
+
+                                <div class="wf-button">Save Settings</div>
+                            </div>
+
+                            <div class="wf-card">
+                                <div style="font-size: 16px; font-weight: 600; color: #1e293b; margin-bottom: 15px;">Danger Zone</div>
+                                <div class="wf-button danger">Clear All Cache</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Platform configuration</li>
+                            <li>Payment gateway settings</li>
+                            <li>Email templates</li>
+                            <li>Commission rates</li>
+                            <li>Auto-approval settings</li>
+                            <li>Security settings (2FA, IP whitelist)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>8. Design Specifications</h2>
+
+        <div class="flow-note">
+            <div class="flow-note-title">Admin Color Palette</div>
+            <div class="flow-note-content">
+                <strong>Primary Colors:</strong>
+                <ul>
+                    <li>Primary Purple: #7c3aed</li>
+                    <li>Primary Dark Purple: #6b21a8</li>
+                    <li>Primary Light Purple: #faf5ff</li>
+                    <li>Accent Purple: #f3e8ff</li>
+                </ul>
+                <strong>Status Colors:</strong>
+                <ul>
+                    <li>Success: #10b981 (Active, Approved)</li>
+                    <li>Warning: #f59e0b (Pending, Review)</li>
+                    <li>Danger: #ef4444 (Rejected, Suspended)</li>
+                    <li>Info: #3b82f6 (User, Verified)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-note">
+            <div class="flow-note-title">Admin-Specific Features</div>
+            <div class="flow-note-content">
+                <strong>Security:</strong>
+                <ul>
+                    <li>2FA authentication (Google Authenticator)</li>
+                    <li>Session timeout: 30 minutes</li>
+                    <li>IP whitelist (optional)</li>
+                    <li>Activity logging for all actions</li>
+                    <li>Audit trail for sensitive operations</li>
+                </ul>
+                <strong>Permissions:</strong>
+                <ul>
+                    <li>Super Admin: Full access</li>
+                    <li>Admin: Limited delete permissions</li>
+                    <li>Moderator: View and approve only</li>
+                </ul>
+                <strong>Notifications:</strong>
+                <ul>
+                    <li>New property submissions</li>
+                    <li>User reports</li>
+                    <li>Payment failures</li>
+                    <li>System alerts</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

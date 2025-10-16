@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookPG - Wireframe Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .header p {
+            font-size: 20px;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            opacity: 0.85;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .card.user .card-icon {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+        }
+
+        .card.owner .card-icon {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .card.admin .card-icon {
+            background: linear-gradient(135deg, #7c3aed, #6b21a8);
+        }
+
+        .card.design .card-icon {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .card.flow .card-icon {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .card-description {
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .card-meta {
+            font-size: 13px;
+            color: #94a3b8;
+            display: flex;
+            gap: 16px;
+        }
+
+        .card-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .footer p {
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>BookPG Wireframes <span class="badge">v1.0</span></h1>
+            <p>Complete Design Documentation & User Journey Wireframes</p>
+            <p class="subtitle">Click on any card below to view detailed wireframes</p>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Documentation Files</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label">Wireframe Screens</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">User Journeys</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            <a href="user-journey-wireframes.html" class="card user">
+                <div class="card-icon">👤</div>
+                <div class="card-title">User Journey</div>
+                <div class="card-description">
+                    Complete user flow from landing page to booking. Includes browse, search, PG details, natural language search, map integration, and WhatsApp features.
+                </div>
+                <div class="card-meta">
+                    <div class="card-meta-item">📄 11 Screens</div>
+                    <div class="card-meta-item">🎨 63 KB</div>
+                </div>
+            </a>
+
+            <a href="owner-journey-wireframes.html" class="card owner">
+                <div class="card-icon">🏠</div>
+                <div class="card-title">Owner Journey</div>
+                <div class="card-description">
+                    PG owner onboarding, property listing (4-step process), dashboard, analytics, and profile management. Full property management workflow.
+                </div>
+                <div class="card-meta">
+                    <div class="card-meta-item">📄 13 Screens</div>
+                    <div class="card-meta-item">🎨 61 KB</div>
+                </div>
+            </a>
+
+            <a href="super-admin-wireframes.html" class="card admin">
+                <div class="card-icon">⚙️</div>
+                <div class="card-title">Super Admin</div>
+                <div class="card-description">
+                    Admin portal with user management, property approvals, payment tracking, analytics, and system settings. Complete admin control panel.
+                </div>
+                <div class="card-meta">
+                    <div class="card-meta-item">📄 10 Screens</div>
+                    <div class="card-meta-item">🎨 66 KB</div>
+                </div>
+            </a>
+
+            <a href="design-system.html" class="card design">
+                <div class="card-icon">🎨</div>
+                <div class="card-title">Design System</div>
+                <div class="card-description">
+                    Complete design specifications: color palette, typography, spacing system, components, responsive breakpoints, and accessibility guidelines.
+                </div>
+                <div class="card-meta">
+                    <div class="card-meta-item">📐 Full Specs</div>
+                    <div class="card-meta-item">🎨 37 KB</div>
+                </div>
+            </a>
+
+            <a href="user-flow-diagrams.html" class="card flow">
+                <div class="card-icon">🔄</div>
+                <div class="card-title">User Flow Diagrams</div>
+                <div class="card-description">
+                    Visual flowcharts for all user journeys, including registration, search, booking, property listing, approvals, and payment flows.
+                </div>
+                <div class="card-meta">
+                    <div class="card-meta-item">📊 10+ Flows</div>
+                    <div class="card-meta-item">🎨 37 KB</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p><strong>BookPG Platform</strong> - PG Accommodation Booking System</p>
+            <p>Built by <a href="https://github.com/kavishankarks" target="_blank">Recnos Inc</a></p>
+            <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">
+                Total Documentation Size: 264 KB | Created: October 2025
+            </p>
+        </div>
+    </div>
+</body>
+</html>

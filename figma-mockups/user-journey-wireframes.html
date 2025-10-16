@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookPG - User Journey Wireframes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        h2 {
+            color: #2563eb;
+            margin: 40px 0 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #334155;
+            margin: 30px 0 15px;
+            font-size: 20px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .screen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .wireframe {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .wireframe-header {
+            background: #f8fafc;
+            padding: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .wireframe-title {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .wireframe-subtitle {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .wireframe-body {
+            padding: 20px;
+            min-height: 400px;
+            background: #fafafa;
+        }
+
+        /* Wireframe Components */
+        .wf-navbar {
+            background: #2563eb;
+            height: 60px;
+            margin: -20px -20px 20px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            justify-content: space-between;
+        }
+
+        .wf-logo {
+            width: 120px;
+            height: 30px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .wf-nav-items {
+            display: flex;
+            gap: 10px;
+        }
+
+        .wf-nav-item {
+            width: 80px;
+            height: 30px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+        }
+
+        .wf-search-bar {
+            width: 100%;
+            height: 55px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .wf-search-input {
+            flex: 1;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .wf-search-btn {
+            width: 100px;
+            height: 38px;
+            background: #2563eb;
+            border-radius: 6px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .wf-input {
+            width: 100%;
+            height: 45px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .wf-button {
+            width: 100%;
+            height: 48px;
+            background: #2563eb;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .wf-button.secondary {
+            background: white;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+        }
+
+        .wf-button.success {
+            background: #10b981;
+        }
+
+        .wf-button.outline {
+            background: white;
+            border: 2px solid #e2e8f0;
+            color: #1e293b;
+        }
+
+        .wf-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 0;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .wf-card-image {
+            width: 100%;
+            height: 180px;
+            background: #e2e8f0;
+            position: relative;
+        }
+
+        .wf-card-content {
+            padding: 15px;
+        }
+
+        .wf-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .wf-badge.success {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .wf-badge.primary {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .wf-badge.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .wf-filter-chip {
+            display: inline-block;
+            padding: 8px 16px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #475569;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .wf-filter-chip.active {
+            background: #2563eb;
+            border-color: #2563eb;
+            color: white;
+        }
+
+        .wf-tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .wf-tab {
+            padding: 12px 20px;
+            background: transparent;
+            color: #64748b;
+            font-size: 14px;
+            border-bottom: 3px solid transparent;
+        }
+
+        .wf-tab.active {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+            font-weight: 600;
+        }
+
+        .flow-note {
+            background: #f0f9ff;
+            border-left: 4px solid #2563eb;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .flow-note-title {
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+
+        .flow-note-content {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .flow-note ul, .flow-note ol {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .flow-note li {
+            margin-bottom: 4px;
+        }
+
+        .annotations {
+            background: #fffbeb;
+            border: 1px solid #fbbf24;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .annotations-title {
+            font-weight: 600;
+            color: #92400e;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .annotations ul {
+            margin-left: 20px;
+            color: #78350f;
+            font-size: 13px;
+        }
+
+        .annotations li {
+            margin-bottom: 4px;
+        }
+
+        .wf-image-gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 8px;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+
+        .wf-gallery-main {
+            background: #e2e8f0;
+            border-radius: 8px;
+        }
+
+        .wf-gallery-side {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .wf-gallery-thumb {
+            background: #e2e8f0;
+            border-radius: 8px;
+        }
+
+        .wf-icon-box {
+            width: 40px;
+            height: 40px;
+            background: #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wf-amenity-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .wf-amenity-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .wf-divider {
+            width: 100%;
+            height: 1px;
+            background: #e2e8f0;
+            margin: 20px 0;
+        }
+
+        .wf-hero {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            height: 400px;
+            margin: -20px -20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .wf-hero-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .wf-hero-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .wf-stat-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .wf-stat-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .wf-stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .wf-stat-label {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .wf-review-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+
+        .wf-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .wf-modal {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BookPG - User Journey Wireframes</h1>
+        <p class="subtitle">Complete wireframe specifications for Guest/User flow and screens</p>
+
+        <h2>1. Landing Page & Browse</h2>
+
+        <div class="flow-note">
+            <div class="flow-note-title">User Flow Overview</div>
+            <div class="flow-note-content">
+                <strong>Entry Points:</strong>
+                <ul>
+                    <li>Direct URL: bookpg.com</li>
+                    <li>Search engine results</li>
+                    <li>Social media/ads</li>
+                </ul>
+                <strong>Flow Steps:</strong>
+                <ol>
+                    <li>Land on homepage with hero section</li>
+                    <li>Browse featured PGs or search</li>
+                    <li>Apply filters (location, price, gender, amenities)</li>
+                    <li>View PG listing cards</li>
+                    <li>Click to view details</li>
+                    <li>Schedule visit or contact owner</li>
+                    <li>Login/Signup to book</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="screen-grid">
+            <!-- Screen 1: Landing Page -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">1.1 Landing Page (Home)</div>
+                    <div class="wireframe-subtitle">Route: /</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div class="wf-hero">
+                        <div>
+                            <div class="wf-hero-title">Find Your Perfect PG</div>
+                            <div class="wf-hero-subtitle">Comfortable, affordable, verified accommodations</div>
+                            <div class="wf-search-bar" style="max-width: 600px; margin: 0 auto;">
+                                <div class="wf-search-input">Search by city, locality, or landmark...</div>
+                                <div class="wf-search-btn">Search</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 15px;">Popular Locations</div>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <div class="wf-filter-chip">Bangalore</div>
+                            <div class="wf-filter-chip">Mumbai</div>
+                            <div class="wf-filter-chip">Delhi</div>
+                            <div class="wf-filter-chip">Pune</div>
+                            <div class="wf-filter-chip">Hyderabad</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 15px;">Featured Properties</div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                            <div style="height: 120px; background: #e2e8f0; border-radius: 8px;"></div>
+                            <div style="height: 120px; background: #e2e8f0; border-radius: 8px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Hero with search (autocomplete)</li>
+                            <li>Popular city chips</li>
+                            <li>Featured PG carousel</li>
+                            <li>Stats (1000+ PGs, 50+ cities)</li>
+                            <li>Trust badges</li>
+                            <li>How it works section</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 2: Browse/Search Results -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">1.2 Browse/Search Results</div>
+                    <div class="wireframe-subtitle">Route: /browse or /search?q=bangalore</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div class="wf-search-bar">
+                        <div class="wf-search-input">Bangalore, Karnataka</div>
+                        <div class="wf-search-btn">Search</div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: #64748b;">234 properties found</div>
+                        <div class="wf-input" style="width: 150px; margin: 0;">Sort by: Popular</div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 10px;">Filters</div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <div class="wf-filter-chip">Price</div>
+                            <div class="wf-filter-chip active">Gender: Male</div>
+                            <div class="wf-filter-chip">Room Type</div>
+                            <div class="wf-filter-chip">Amenities</div>
+                            <div class="wf-filter-chip">Availability</div>
+                        </div>
+                    </div>
+
+                    <div class="wf-card">
+                        <div class="wf-card-image">
+                            <div style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; background: white; border-radius: 50%;"></div>
+                            <div style="position: absolute; bottom: 10px; left: 10px;">
+                                <div class="wf-badge success">Available</div>
+                            </div>
+                        </div>
+                        <div class="wf-card-content">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+                                <div style="font-weight: 600; color: #1e293b; font-size: 16px;">Sunrise Boys PG</div>
+                                <div style="display: flex; align-items: center; gap: 4px; color: #f59e0b; font-size: 14px; font-weight: 600;">★ 4.5</div>
+                            </div>
+                            <div style="font-size: 13px; color: #64748b; margin-bottom: 8px;">MG Road, Bangalore</div>
+                            <div style="display: flex; gap: 6px; margin-bottom: 10px;">
+                                <div class="wf-badge primary">Single</div>
+                                <div class="wf-badge primary">WiFi</div>
+                                <div class="wf-badge primary">Meals</div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="font-size: 18px; font-weight: 700; color: #1e293b;">₹8,000<span style="font-size: 13px; font-weight: 400; color: #64748b;">/month</span></div>
+                                <div style="padding: 8px 16px; background: #2563eb; color: white; border-radius: 6px; font-size: 13px; font-weight: 600;">View Details</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wf-card">
+                        <div class="wf-card-image">
+                            <div style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; background: white; border-radius: 50%;"></div>
+                            <div style="position: absolute; bottom: 10px; left: 10px;">
+                                <div class="wf-badge warning">2 Rooms Left</div>
+                            </div>
+                        </div>
+                        <div class="wf-card-content">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+                                <div style="font-weight: 600; color: #1e293b; font-size: 16px;">Comfort Stay PG</div>
+                                <div style="display: flex; align-items: center; gap: 4px; color: #f59e0b; font-size: 14px; font-weight: 600;">★ 4.8</div>
+                            </div>
+                            <div style="font-size: 13px; color: #64748b; margin-bottom: 8px;">HSR Layout, Bangalore</div>
+                            <div style="display: flex; gap: 6px; margin-bottom: 10px;">
+                                <div class="wf-badge primary">Double</div>
+                                <div class="wf-badge primary">AC</div>
+                                <div class="wf-badge primary">Gym</div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="font-size: 18px; font-weight: 700; color: #1e293b;">₹12,000<span style="font-size: 13px; font-weight: 400; color: #64748b;">/month</span></div>
+                                <div style="padding: 8px 16px; background: #2563eb; color: white; border-radius: 6px; font-size: 13px; font-weight: 600;">View Details</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Filter by price, gender, type, amenities</li>
+                            <li>Sort by: Popular, Price, Rating, Newest</li>
+                            <li>Infinite scroll or pagination</li>
+                            <li>Save to favorites (heart icon)</li>
+                            <li>Quick view on hover (desktop)</li>
+                            <li>Map view toggle</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 3: Advanced Search with Natural Language -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">1.3 Natural Language Search</div>
+                    <div class="wireframe-subtitle">Route: /search (enhanced)</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 10px;">Smart Search</div>
+                        <div style="font-size: 14px; color: #64748b; margin-bottom: 15px;">Search naturally, we'll understand</div>
+                    </div>
+
+                    <div class="wf-search-bar" style="height: auto; min-height: 55px; padding: 15px 20px;">
+                        <div class="wf-search-input">PG for boys near MG Road with WiFi and meals under 10000</div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 10px;">Suggestions</div>
+                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 8px; padding: 15px;">
+                            <div style="font-size: 13px; color: #64748b; margin-bottom: 8px;">Try searching for:</div>
+                            <div style="font-size: 13px; color: #2563eb; margin-bottom: 4px;">• "Single room PG near Koramangala with parking"</div>
+                            <div style="font-size: 13px; color: #2563eb; margin-bottom: 4px;">• "Girls hostel in Bangalore below 8000"</div>
+                            <div style="font-size: 13px; color: #2563eb; margin-bottom: 4px;">• "AC PG with food facility in HSR Layout"</div>
+                            <div style="font-size: 13px; color: #2563eb;">• "Sharing room for students near RV College"</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 10px;">Detected Filters</div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <div class="wf-filter-chip active">Location: MG Road</div>
+                            <div class="wf-filter-chip active">Gender: Male</div>
+                            <div class="wf-filter-chip active">Price: ₹0 - ₹10,000</div>
+                            <div class="wf-filter-chip active">WiFi</div>
+                            <div class="wf-filter-chip active">Meals</div>
+                        </div>
+                    </div>
+
+                    <div style="background: #dbeafe; border: 2px solid #3b82f6; border-radius: 8px; padding: 15px;">
+                        <div style="font-weight: 600; color: #1e40af; margin-bottom: 4px;">45 properties match your search</div>
+                        <div style="font-size: 13px; color: #1e40af;">Showing best matches first</div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Natural language processing</li>
+                            <li>Auto-extract location, price, gender, amenities</li>
+                            <li>Show detected filters</li>
+                            <li>Suggest similar searches</li>
+                            <li>Full-text search in descriptions</li>
+                            <li>Voice search support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>2. PG Details & Booking</h2>
+
+        <div class="screen-grid">
+            <!-- Screen 4: PG Details Page -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">2.1 PG Details Page</div>
+                    <div class="wireframe-subtitle">Route: /pg/:id</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div class="wf-image-gallery">
+                        <div class="wf-gallery-main"></div>
+                        <div class="wf-gallery-side">
+                            <div class="wf-gallery-thumb"></div>
+                            <div class="wf-gallery-thumb" style="position: relative;">
+                                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">+5 more</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                        <div>
+                            <div style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 4px;">Sunrise Boys PG</div>
+                            <div style="font-size: 14px; color: #64748b;">MG Road, Bangalore, Karnataka - 560001</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 4px; color: #f59e0b; font-size: 18px; font-weight: 700;">★ 4.5</div>
+                    </div>
+
+                    <div class="wf-stat-row">
+                        <div class="wf-stat-item">
+                            <div class="wf-stat-value">₹8,000</div>
+                            <div class="wf-stat-label">Per Month</div>
+                        </div>
+                        <div class="wf-stat-item">
+                            <div class="wf-stat-value">Single</div>
+                            <div class="wf-stat-label">Room Type</div>
+                        </div>
+                        <div class="wf-stat-item">
+                            <div class="wf-stat-value">5/10</div>
+                            <div class="wf-stat-label">Available</div>
+                        </div>
+                    </div>
+
+                    <div class="wf-divider"></div>
+
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 16px; font-weight: 600; color: #1e293b; margin-bottom: 10px;">Amenities</div>
+                        <div class="wf-amenity-list">
+                            <div class="wf-amenity-item">
+                                <div class="wf-icon-box"></div>
+                                WiFi
+                            </div>
+                            <div class="wf-amenity-item">
+                                <div class="wf-icon-box"></div>
+                                AC
+                            </div>
+                            <div class="wf-amenity-item">
+                                <div class="wf-icon-box"></div>
+                                Meals
+                            </div>
+                            <div class="wf-amenity-item">
+                                <div class="wf-icon-box"></div>
+                                Laundry
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div class="wf-button secondary">Schedule Visit</div>
+                        <div class="wf-button success">WhatsApp Owner</div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Image gallery (lightbox)</li>
+                            <li>Share button</li>
+                            <li>Save to favorites</li>
+                            <li>Report listing</li>
+                            <li>Virtual tour (if available)</li>
+                            <li>Similar properties</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 5: PG Details - Map Section -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">2.2 PG Details - Location</div>
+                    <div class="wireframe-subtitle">Route: /pg/:id (scrolled down)</div>
+                </div>
+                <div class="wireframe-body">
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 18px; font-weight: 600; color: #1e293b; margin-bottom: 10px;">Location</div>
+                        <div style="font-size: 14px; color: #64748b; margin-bottom: 15px;">MG Road, Bangalore, Karnataka - 560001</div>
+
+                        <div style="height: 200px; background: #e2e8f0; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 14px;">
+                            Google Map Integration
+                            <br>
+                            (Hidden until login)
+                        </div>
+
+                        <div style="background: #fef3c7; border: 2px solid #f59e0b; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+                            <div style="font-weight: 600; color: #92400e; margin-bottom: 4px;">Login to view exact location</div>
+                            <div style="font-size: 13px; color: #78350f;">Create a free account to see the complete address, map, and street view</div>
+                        </div>
+
+                        <div class="wf-button">Login to View Map</div>
+                    </div>
+
+                    <div class="wf-divider"></div>
+
+                    <div style="margin-top: 20px;">
+                        <div style="font-size: 18px; font-weight: 600; color: #1e293b; margin-bottom: 10px;">Nearby Landmarks</div>
+                        <div style="font-size: 14px; color: #64748b; margin-bottom: 8px;">• Metro Station - 500m (5 min walk)</div>
+                        <div style="font-size: 14px; color: #64748b; margin-bottom: 8px;">• Shopping Mall - 1.2km</div>
+                        <div style="font-size: 14px; color: #64748b; margin-bottom: 8px;">• Hospital - 800m</div>
+                        <div style="font-size: 14px; color: #64748b;">• Tech Park - 2km</div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Blurred map for non-logged users</li>
+                            <li>Show locality only, hide exact location</li>
+                            <li>Google Maps integration (after login)</li>
+                            <li>Street view preview</li>
+                            <li>Directions button</li>
+                            <li>Nearby places (metro, hospital, etc)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 6: Schedule Visit Modal -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">2.3 Schedule Visit Modal</div>
+                    <div class="wireframe-subtitle">Modal overlay</div>
+                </div>
+                <div class="wireframe-body" style="background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; padding: 40px 20px;">
+                    <div class="wf-modal">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <div style="font-size: 20px; font-weight: 700; color: #1e293b;">Schedule a Visit</div>
+                            <div style="width: 32px; height: 32px; background: #f1f5f9; border-radius: 50%;"></div>
+                        </div>
+
+                        <div style="background: #f0f9ff; border: 2px solid #3b82f6; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+                            <div style="font-weight: 600; color: #1e40af; margin-bottom: 4px;">Sunrise Boys PG</div>
+                            <div style="font-size: 13px; color: #1e40af;">MG Road, Bangalore</div>
+                        </div>
+
+                        <div style="font-size: 14px; font-weight: 500; color: #475569; margin-bottom: 8px;">Select Date</div>
+                        <div class="wf-input">DD/MM/YYYY</div>
+
+                        <div style="font-size: 14px; font-weight: 500; color: #475569; margin-bottom: 8px;">Select Time</div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 15px;">
+                            <div class="wf-filter-chip active">10:00 AM</div>
+                            <div class="wf-filter-chip">02:00 PM</div>
+                            <div class="wf-filter-chip">05:00 PM</div>
+                        </div>
+
+                        <div style="font-size: 14px; font-weight: 500; color: #475569; margin-bottom: 8px;">Your Name</div>
+                        <div class="wf-input">Full Name</div>
+
+                        <div style="font-size: 14px; font-weight: 500; color: #475569; margin-bottom: 8px;">Phone Number</div>
+                        <div class="wf-input">+91</div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px;">
+                            <div class="wf-button outline">Cancel</div>
+                            <div class="wf-button">Confirm Visit</div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Date picker (next 7 days)</li>
+                            <li>Time slots (owner defined)</li>
+                            <li>Auto-fill if logged in</li>
+                            <li>SMS/email confirmation</li>
+                            <li>Add to calendar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 7: Reviews Section -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">2.4 Reviews & Ratings</div>
+                    <div class="wireframe-subtitle">Route: /pg/:id (reviews section)</div>
+                </div>
+                <div class="wireframe-body">
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 18px; font-weight: 600; color: #1e293b; margin-bottom: 15px;">Reviews & Ratings</div>
+
+                        <div style="display: flex; gap: 30px; align-items: center; margin-bottom: 20px;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 48px; font-weight: 700; color: #1e293b;">4.5</div>
+                                <div style="color: #f59e0b; font-size: 20px; margin: 5px 0;">★★★★★</div>
+                                <div style="font-size: 13px; color: #64748b;">Based on 28 reviews</div>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                    <div style="font-size: 12px; color: #64748b; width: 30px;">5★</div>
+                                    <div style="flex: 1; height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
+                                        <div style="width: 75%; height: 100%; background: #f59e0b;"></div>
+                                    </div>
+                                    <div style="font-size: 12px; color: #64748b; width: 30px;">21</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                    <div style="font-size: 12px; color: #64748b; width: 30px;">4★</div>
+                                    <div style="flex: 1; height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
+                                        <div style="width: 15%; height: 100%; background: #f59e0b;"></div>
+                                    </div>
+                                    <div style="font-size: 12px; color: #64748b; width: 30px;">4</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                    <div style="font-size: 12px; color: #64748b; width: 30px;">3★</div>
+                                    <div style="flex: 1; height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
+                                        <div style="width: 10%; height: 100%; background: #f59e0b;"></div>
+                                    </div>
+                                    <div style="font-size: 12px; color: #64748b; width: 30px;">3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wf-review-card">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <div style="width: 40px; height: 40px; background: #e2e8f0; border-radius: 50%;"></div>
+                                <div>
+                                    <div style="font-weight: 600; color: #1e293b; font-size: 14px;">Rahul Kumar</div>
+                                    <div style="font-size: 12px; color: #64748b;">2 weeks ago</div>
+                                </div>
+                            </div>
+                            <div style="color: #f59e0b; font-size: 14px; font-weight: 600;">★★★★★</div>
+                        </div>
+                        <div style="font-size: 14px; color: #475569; line-height: 1.6;">Great place! Clean rooms, good food, and friendly owner. WiFi speed is excellent. Highly recommended for working professionals.</div>
+                    </div>
+
+                    <div class="wf-review-card">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <div style="width: 40px; height: 40px; background: #e2e8f0; border-radius: 50%;"></div>
+                                <div>
+                                    <div style="font-weight: 600; color: #1e293b; font-size: 14px;">Amit Sharma</div>
+                                    <div style="font-size: 12px; color: #64748b;">1 month ago</div>
+                                </div>
+                            </div>
+                            <div style="color: #f59e0b; font-size: 14px; font-weight: 600;">★★★★☆</div>
+                        </div>
+                        <div style="font-size: 14px; color: #475569; line-height: 1.6;">Good location and amenities. Only improvement needed is parking space. Overall satisfied with my stay.</div>
+                    </div>
+
+                    <div class="wf-button outline">View All Reviews</div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Overall rating with breakdown</li>
+                            <li>Star distribution graph</li>
+                            <li>Verified tenant badge</li>
+                            <li>Helpful/Report buttons</li>
+                            <li>Photo reviews (optional)</li>
+                            <li>Filter by rating</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>3. User Authentication</h2>
+
+        <div class="screen-grid">
+            <!-- Screen 8: User Login -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">3.1 User Login</div>
+                    <div class="wireframe-subtitle">Route: /login</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="max-width: 400px; margin: 0 auto;">
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <div style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Welcome Back</div>
+                            <div style="font-size: 14px; color: #64748b;">Login to continue your search</div>
+                        </div>
+
+                        <div class="wf-input">Email or Phone</div>
+                        <div class="wf-input">Password</div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin: 15px 0;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div style="width: 18px; height: 18px; border: 2px solid #cbd5e1; border-radius: 3px;"></div>
+                                <span style="font-size: 13px; color: #64748b;">Remember me</span>
+                            </div>
+                            <span style="font-size: 13px; color: #2563eb; font-weight: 600;">Forgot Password?</span>
+                        </div>
+
+                        <div class="wf-button">Login</div>
+
+                        <div style="margin: 20px 0; text-align: center; color: #94a3b8; font-size: 14px;">OR</div>
+
+                        <div class="wf-button secondary">Login with Google</div>
+
+                        <div style="text-align: center; margin-top: 20px; font-size: 14px; color: #64748b;">
+                            Don't have an account? <span style="color: #2563eb; font-weight: 600;">Sign Up</span>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Email or phone login</li>
+                            <li>Social login (Google, Facebook)</li>
+                            <li>Remember me (30 days)</li>
+                            <li>Password reset flow</li>
+                            <li>Redirect to previous page after login</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 9: User Signup -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">3.2 User Signup</div>
+                    <div class="wireframe-subtitle">Route: /register</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="max-width: 400px; margin: 0 auto;">
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <div style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Create Account</div>
+                            <div style="font-size: 14px; color: #64748b;">Find your perfect PG today</div>
+                        </div>
+
+                        <div class="wf-input">Full Name</div>
+                        <div class="wf-input">Email Address</div>
+                        <div class="wf-input">Phone Number</div>
+                        <div class="wf-input">Password</div>
+
+                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 6px; padding: 12px; margin-bottom: 15px;">
+                            <div style="font-size: 12px; color: #64748b; margin-bottom: 6px;">Password strength:</div>
+                            <div style="display: flex; gap: 4px;">
+                                <div style="flex: 1; height: 4px; background: #ef4444; border-radius: 2px;"></div>
+                                <div style="flex: 1; height: 4px; background: #e2e8f0; border-radius: 2px;"></div>
+                                <div style="flex: 1; height: 4px; background: #e2e8f0; border-radius: 2px;"></div>
+                            </div>
+                            <div style="font-size: 11px; color: #ef4444; margin-top: 4px;">Weak - Add numbers and symbols</div>
+                        </div>
+
+                        <div style="display: flex; align-items: start; gap: 8px; margin: 15px 0;">
+                            <div style="width: 18px; height: 18px; border: 2px solid #cbd5e1; border-radius: 3px; flex-shrink: 0; margin-top: 2px;"></div>
+                            <span style="font-size: 13px; color: #64748b; line-height: 1.4;">I agree to BookPG's <span style="color: #2563eb; font-weight: 600;">Terms of Service</span> and <span style="color: #2563eb; font-weight: 600;">Privacy Policy</span></span>
+                        </div>
+
+                        <div class="wf-button">Create Account</div>
+
+                        <div style="margin: 20px 0; text-align: center; color: #94a3b8; font-size: 14px;">OR</div>
+
+                        <div class="wf-button secondary">Sign up with Google</div>
+
+                        <div style="text-align: center; margin-top: 20px; font-size: 14px; color: #64748b;">
+                            Already have an account? <span style="color: #2563eb; font-weight: 600;">Login</span>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Real-time validation</li>
+                            <li>Password strength indicator</li>
+                            <li>Email verification (OTP)</li>
+                            <li>Phone verification (OTP)</li>
+                            <li>Social signup</li>
+                            <li>Auto-login after signup</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>4. User Profile & Dashboard</h2>
+
+        <div class="screen-grid">
+            <!-- Screen 10: User Profile -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">4.1 User Profile</div>
+                    <div class="wireframe-subtitle">Route: /profile</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 30px;">
+                        <div style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 20px;">My Profile</div>
+
+                        <div style="background: white; border: 2px solid #e2e8f0; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+                            <div style="display: flex; gap: 20px; align-items: start;">
+                                <div style="width: 80px; height: 80px; background: #e2e8f0; border-radius: 50%; flex-shrink: 0;"></div>
+                                <div style="flex: 1;">
+                                    <div style="font-size: 20px; font-weight: 600; color: #1e293b; margin-bottom: 4px;">Rahul Kumar</div>
+                                    <div style="font-size: 14px; color: #64748b; margin-bottom: 8px;">rahul@example.com • +91 98765 43210</div>
+                                    <div class="wf-badge success">Verified</div>
+                                </div>
+                                <div style="padding: 8px 16px; background: #f1f5f9; border-radius: 6px; font-size: 14px; color: #475569; font-weight: 500;">Edit Profile</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wf-tabs">
+                        <div class="wf-tab active">My Bookings</div>
+                        <div class="wf-tab">Saved PGs</div>
+                        <div class="wf-tab">Reviews</div>
+                        <div class="wf-tab">Settings</div>
+                    </div>
+
+                    <div style="background: white; border: 2px solid #e2e8f0; border-radius: 8px; padding: 20px; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                            <div>
+                                <div style="font-weight: 600; color: #1e293b; font-size: 16px; margin-bottom: 4px;">Sunrise Boys PG</div>
+                                <div style="font-size: 13px; color: #64748b;">MG Road, Bangalore</div>
+                            </div>
+                            <div class="wf-badge success">Confirmed</div>
+                        </div>
+                        <div style="font-size: 13px; color: #64748b; margin-bottom: 8px;">Check-in: 01 Jan 2025 • Check-out: 31 Jan 2025</div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="font-size: 16px; font-weight: 700; color: #1e293b;">₹8,000</div>
+                            <div style="display: flex; gap: 8px;">
+                                <div style="padding: 6px 12px; background: #f1f5f9; border-radius: 4px; font-size: 12px; color: #475569; font-weight: 500;">View Details</div>
+                                <div style="padding: 6px 12px; background: #fef2f2; border-radius: 4px; font-size: 12px; color: #dc2626; font-weight: 500;">Cancel</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: white; border: 2px solid #e2e8f0; border-radius: 8px; padding: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                            <div>
+                                <div style="font-weight: 600; color: #1e293b; font-size: 16px; margin-bottom: 4px;">Comfort Stay PG</div>
+                                <div style="font-size: 13px; color: #64748b;">HSR Layout, Bangalore</div>
+                            </div>
+                            <div class="wf-badge warning">Pending</div>
+                        </div>
+                        <div style="font-size: 13px; color: #64748b; margin-bottom: 8px;">Visit scheduled: 15 Dec 2024, 2:00 PM</div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="font-size: 16px; font-weight: 700; color: #1e293b;">₹12,000</div>
+                            <div style="display: flex; gap: 8px;">
+                                <div style="padding: 6px 12px; background: #f1f5f9; border-radius: 4px; font-size: 12px; color: #475569; font-weight: 500;">Reschedule</div>
+                                <div style="padding: 6px 12px; background: #fef2f2; border-radius: 4px; font-size: 12px; color: #dc2626; font-weight: 500;">Cancel</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>View all bookings (current/past)</li>
+                            <li>Saved/favorite PGs</li>
+                            <li>My reviews</li>
+                            <li>Edit profile</li>
+                            <li>Notification preferences</li>
+                            <li>Change password</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 11: Saved PGs -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">4.2 Saved PGs (Favorites)</div>
+                    <div class="wireframe-subtitle">Route: /profile (saved tab)</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 24px; font-weight: 700; color: #1e293b;">Saved PGs</div>
+                        <div style="font-size: 14px; color: #64748b;">Your favorite properties (3)</div>
+                    </div>
+
+                    <div class="wf-card">
+                        <div class="wf-card-image">
+                            <div style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; background: #ef4444; border-radius: 50%;"></div>
+                        </div>
+                        <div class="wf-card-content">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+                                <div style="font-weight: 600; color: #1e293b; font-size: 16px;">Sunrise Boys PG</div>
+                                <div style="display: flex; align-items: center; gap: 4px; color: #f59e0b; font-size: 14px; font-weight: 600;">★ 4.5</div>
+                            </div>
+                            <div style="font-size: 13px; color: #64748b; margin-bottom: 8px;">MG Road, Bangalore</div>
+                            <div style="display: flex; gap: 6px; margin-bottom: 10px;">
+                                <div class="wf-badge primary">Single</div>
+                                <div class="wf-badge primary">WiFi</div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="font-size: 18px; font-weight: 700; color: #1e293b;">₹8,000<span style="font-size: 13px; font-weight: 400; color: #64748b;">/month</span></div>
+                                <div style="padding: 8px 16px; background: #2563eb; color: white; border-radius: 6px; font-size: 13px; font-weight: 600;">View Details</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wf-card">
+                        <div class="wf-card-image">
+                            <div style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; background: #ef4444; border-radius: 50%;"></div>
+                        </div>
+                        <div class="wf-card-content">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+                                <div style="font-weight: 600; color: #1e293b; font-size: 16px;">Elite Ladies PG</div>
+                                <div style="display: flex; align-items: center; gap: 4px; color: #f59e0b; font-size: 14px; font-weight: 600;">★ 4.7</div>
+                            </div>
+                            <div style="font-size: 13px; color: #64748b; margin-bottom: 8px;">Koramangala, Bangalore</div>
+                            <div style="display: flex; gap: 6px; margin-bottom: 10px;">
+                                <div class="wf-badge primary">Double</div>
+                                <div class="wf-badge primary">AC</div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="font-size: 18px; font-weight: 700; color: #1e293b;">₹10,000<span style="font-size: 13px; font-weight: 400; color: #64748b;">/month</span></div>
+                                <div style="padding: 8px 16px; background: #2563eb; color: white; border-radius: 6px; font-size: 13px; font-weight: 600;">View Details</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Heart icon to remove from favorites</li>
+                            <li>Share saved list</li>
+                            <li>Compare saved PGs</li>
+                            <li>Sort by: Recently Added, Price</li>
+                            <li>Empty state with suggestions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>5. Design Specifications</h2>
+
+        <div class="flow-note">
+            <div class="flow-note-title">Color Palette</div>
+            <div class="flow-note-content">
+                <strong>Primary Colors:</strong>
+                <ul>
+                    <li>Primary Blue: #2563eb</li>
+                    <li>Primary Dark: #1e40af</li>
+                    <li>Primary Light: #dbeafe</li>
+                </ul>
+                <strong>Neutral Colors:</strong>
+                <ul>
+                    <li>Text Primary: #1e293b</li>
+                    <li>Text Secondary: #64748b</li>
+                    <li>Text Muted: #94a3b8</li>
+                    <li>Border: #e2e8f0</li>
+                    <li>Background: #f8fafc</li>
+                </ul>
+                <strong>Status Colors:</strong>
+                <ul>
+                    <li>Success: #10b981 (Available, Confirmed)</li>
+                    <li>Warning: #f59e0b (Limited, Pending)</li>
+                    <li>Error: #ef4444 (Unavailable, Cancelled)</li>
+                    <li>Info: #3b82f6 (Verified, Featured)</li>
+                </ul>
+                <strong>Rating:</strong>
+                <ul>
+                    <li>Star Gold: #f59e0b</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-note">
+            <div class="flow-note-title">Key User Interactions</div>
+            <div class="flow-note-content">
+                <strong>Search Behavior:</strong>
+                <ul>
+                    <li>Autocomplete on 3+ characters</li>
+                    <li>Show recent searches</li>
+                    <li>Voice search support (mobile)</li>
+                    <li>Natural language processing</li>
+                </ul>
+                <strong>Filtering:</strong>
+                <ul>
+                    <li>Applied filters shown as chips</li>
+                    <li>One-click to remove filter</li>
+                    <li>Filter count badge</li>
+                    <li>Save filter preferences</li>
+                </ul>
+                <strong>Map Integration:</strong>
+                <ul>
+                    <li>Blurred/hidden until login</li>
+                    <li>Show only after authentication</li>
+                    <li>Google Maps embed with markers</li>
+                    <li>Street view integration</li>
+                    <li>Directions link</li>
+                </ul>
+                <strong>WhatsApp Integration:</strong>
+                <ul>
+                    <li>Pre-filled message template</li>
+                    <li>Include PG name and link</li>
+                    <li>Owner's WhatsApp number</li>
+                    <li>Track clicks for analytics</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-note">
+            <div class="flow-note-title">Responsive Breakpoints</div>
+            <div class="flow-note-content">
+                <ul>
+                    <li>Mobile: 320px - 767px (Single column)</li>
+                    <li>Tablet: 768px - 1023px (2 columns for cards)</li>
+                    <li>Desktop: 1024px+ (3-4 columns for cards)</li>
+                    <li>Navigation: Hamburger menu below 768px</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

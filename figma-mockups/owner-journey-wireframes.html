@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookPG - Owner Journey Wireframes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        h2 {
+            color: #2563eb;
+            margin: 40px 0 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #334155;
+            margin: 30px 0 15px;
+            font-size: 20px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .screen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .wireframe {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .wireframe-header {
+            background: #f8fafc;
+            padding: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .wireframe-title {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .wireframe-subtitle {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .wireframe-body {
+            padding: 20px;
+            min-height: 400px;
+            background: #fafafa;
+        }
+
+        /* Wireframe Components */
+        .wf-navbar {
+            background: #2563eb;
+            height: 60px;
+            margin: -20px -20px 20px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            justify-content: space-between;
+        }
+
+        .wf-logo {
+            width: 120px;
+            height: 30px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .wf-nav-items {
+            display: flex;
+            gap: 10px;
+        }
+
+        .wf-nav-item {
+            width: 80px;
+            height: 30px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+        }
+
+        .wf-input {
+            width: 100%;
+            height: 45px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .wf-input.error {
+            border-color: #ef4444;
+        }
+
+        .wf-textarea {
+            width: 100%;
+            height: 100px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            padding: 15px;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .wf-button {
+            width: 100%;
+            height: 48px;
+            background: #2563eb;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .wf-button.secondary {
+            background: white;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+        }
+
+        .wf-button.success {
+            background: #10b981;
+        }
+
+        .wf-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .wf-image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #e2e8f0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .wf-checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .wf-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .wf-checkbox-box {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .wf-checkbox.checked .wf-checkbox-box {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+
+        .wf-label {
+            font-size: 13px;
+            color: #475569;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .wf-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .wf-stat-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .wf-stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .wf-stat-label {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .wf-table {
+            width: 100%;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .wf-table-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 10px;
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            background: white;
+        }
+
+        .wf-table-row:last-child {
+            border-bottom: none;
+        }
+
+        .wf-table-header {
+            background: #f1f5f9;
+            font-weight: 600;
+            font-size: 12px;
+            color: #475569;
+        }
+
+        .wf-table-cell {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .wf-tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .wf-tab {
+            padding: 12px 20px;
+            background: transparent;
+            color: #64748b;
+            font-size: 14px;
+            border-bottom: 3px solid transparent;
+        }
+
+        .wf-tab.active {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+            font-weight: 600;
+        }
+
+        .wf-upload-area {
+            width: 100%;
+            height: 150px;
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 15px;
+            background: white;
+        }
+
+        .wf-upload-icon {
+            width: 40px;
+            height: 40px;
+            background: #e2e8f0;
+            border-radius: 50%;
+        }
+
+        .wf-image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .wf-image-preview {
+            aspect-ratio: 16/9;
+            background: #e2e8f0;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .wf-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .wf-badge.success {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .wf-badge.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .wf-badge.info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .flow-note {
+            background: #f0f9ff;
+            border-left: 4px solid #2563eb;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .flow-note-title {
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+
+        .flow-note-content {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .flow-note ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .flow-note li {
+            margin-bottom: 4px;
+        }
+
+        .annotations {
+            background: #fffbeb;
+            border: 1px solid #fbbf24;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .annotations-title {
+            font-weight: 600;
+            color: #92400e;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .annotations ul {
+            margin-left: 20px;
+            color: #78350f;
+            font-size: 13px;
+        }
+
+        .annotations li {
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BookPG - Owner Journey Wireframes</h1>
+        <p class="subtitle">Complete wireframe specifications for PG Owner user flow and screens</p>
+
+        <h2>1. Owner Registration & Onboarding Flow</h2>
+
+        <div class="flow-note">
+            <div class="flow-note-title">User Flow Overview</div>
+            <div class="flow-note-content">
+                <strong>Entry Points:</strong>
+                <ul>
+                    <li>Landing Page "List Your Property" CTA</li>
+                    <li>Direct URL: /owner/register</li>
+                    <li>After login redirect for new owners</li>
+                </ul>
+                <strong>Flow Steps:</strong>
+                <ol>
+                    <li>Initial Registration (Email, Password, Name)</li>
+                    <li>Phone Verification (OTP)</li>
+                    <li>Address Collection</li>
+                    <li>Full Profile Information</li>
+                    <li>Dashboard Access</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="screen-grid">
+            <!-- Screen 1: Owner Registration -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">1.1 Owner Registration</div>
+                    <div class="wireframe-subtitle">Route: /owner/register</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <div style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Become a Host</div>
+                        <div style="font-size: 14px; color: #64748b;">Start earning by listing your PG</div>
+                    </div>
+
+                    <div class="wf-input">Full Name</div>
+                    <div class="wf-input">Email Address</div>
+                    <div class="wf-input">Phone Number</div>
+                    <div class="wf-input">Password</div>
+                    <div class="wf-input">Confirm Password</div>
+
+                    <div style="display: flex; align-items: center; gap: 8px; margin: 15px 0;">
+                        <div class="wf-checkbox-box"></div>
+                        <span style="font-size: 13px; color: #64748b;">I agree to Terms & Conditions</span>
+                    </div>
+
+                    <div class="wf-button">Create Account</div>
+                    <div style="text-align: center; margin-top: 15px; font-size: 14px; color: #64748b;">
+                        Already have an account? <span style="color: #2563eb; font-weight: 600;">Login</span>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Email validation (valid format)</li>
+                            <li>Phone validation (10 digits)</li>
+                            <li>Password strength indicator</li>
+                            <li>Real-time validation feedback</li>
+                            <li>Google/Social login option</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 2: Phone Verification -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">1.2 Phone Verification</div>
+                    <div class="wireframe-subtitle">Route: /owner/verify</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: 40px;">
+                        <div style="width: 80px; height: 80px; background: #dbeafe; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                            <div style="width: 40px; height: 40px; background: #2563eb; border-radius: 50%;"></div>
+                        </div>
+                        <div style="font-size: 22px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Verify Your Phone</div>
+                        <div style="font-size: 14px; color: #64748b;">We sent a code to +91 XXXXX XX789</div>
+                    </div>
+
+                    <div class="wf-label">Enter 6-digit OTP</div>
+                    <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                        <div class="wf-input" style="width: 50px; height: 50px; text-align: center; font-size: 20px; font-weight: 600; flex: 1;">-</div>
+                        <div class="wf-input" style="width: 50px; height: 50px; text-align: center; font-size: 20px; font-weight: 600; flex: 1;">-</div>
+                        <div class="wf-input" style="width: 50px; height: 50px; text-align: center; font-size: 20px; font-weight: 600; flex: 1;">-</div>
+                        <div class="wf-input" style="width: 50px; height: 50px; text-align: center; font-size: 20px; font-weight: 600; flex: 1;">-</div>
+                        <div class="wf-input" style="width: 50px; height: 50px; text-align: center; font-size: 20px; font-weight: 600; flex: 1;">-</div>
+                        <div class="wf-input" style="width: 50px; height: 50px; text-align: center; font-size: 20px; font-weight: 600; flex: 1;">-</div>
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <span style="font-size: 14px; color: #64748b;">Didn't receive code? </span>
+                        <span style="color: #2563eb; font-weight: 600; font-size: 14px;">Resend in 30s</span>
+                    </div>
+
+                    <div class="wf-button">Verify & Continue</div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Auto-focus on next input</li>
+                            <li>Countdown timer for resend</li>
+                            <li>OTP expires in 5 minutes</li>
+                            <li>Allow editing phone number</li>
+                            <li>Max 3 resend attempts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 3: Address Collection -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">1.3 Address Information</div>
+                    <div class="wireframe-subtitle">Route: /owner/onboarding/address</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Your Address</div>
+                        <div style="font-size: 14px; color: #64748b;">Where should we send important documents?</div>
+                    </div>
+
+                    <div style="display: flex; gap: 5px; margin-bottom: 20px;">
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #e2e8f0; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #e2e8f0; border-radius: 2px;"></div>
+                    </div>
+
+                    <div class="wf-input">Address Line 1</div>
+                    <div class="wf-input">Address Line 2 (Optional)</div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div class="wf-input">City</div>
+                        <div class="wf-input">State</div>
+                    </div>
+
+                    <div class="wf-input">Pincode</div>
+
+                    <div style="margin-top: 30px; display: flex; gap: 10px;">
+                        <div class="wf-button secondary" style="flex: 1;">Back</div>
+                        <div class="wf-button" style="flex: 2;">Continue</div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Pincode auto-fills city/state</li>
+                            <li>Address validation</li>
+                            <li>Google Places autocomplete</li>
+                            <li>Save multiple addresses</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 4: Full Profile Info -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">1.4 Complete Profile</div>
+                    <div class="wireframe-subtitle">Route: /owner/onboarding/profile</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Complete Your Profile</div>
+                        <div style="font-size: 14px; color: #64748b;">Help guests get to know you</div>
+                    </div>
+
+                    <div style="display: flex; gap: 5px; margin-bottom: 20px;">
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #e2e8f0; border-radius: 2px;"></div>
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="width: 100px; height: 100px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 12px;">Upload Photo</div>
+                        <div style="color: #2563eb; font-weight: 600; font-size: 14px;">Change Photo</div>
+                    </div>
+
+                    <div class="wf-textarea">About yourself (Optional)</div>
+
+                    <div class="wf-input">Languages Spoken</div>
+                    <div class="wf-input">Years of Experience</div>
+                    <div class="wf-input">Total Properties (Optional)</div>
+
+                    <div style="margin-top: 30px; display: flex; gap: 10px;">
+                        <div class="wf-button secondary" style="flex: 1;">Skip</div>
+                        <div class="wf-button" style="flex: 2;">Complete Setup</div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Image upload (max 5MB)</li>
+                            <li>Crop/resize functionality</li>
+                            <li>Multi-language selection</li>
+                            <li>Optional fields</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>2. Owner Login & Authentication</h2>
+
+        <div class="screen-grid">
+            <!-- Screen 5: Owner Login -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">2.1 Owner Login</div>
+                    <div class="wireframe-subtitle">Route: /owner/login</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <div style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Owner Login</div>
+                        <div style="font-size: 14px; color: #64748b;">Manage your properties</div>
+                    </div>
+
+                    <div class="wf-input">Email or Phone</div>
+                    <div class="wf-input">Password</div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin: 15px 0;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div class="wf-checkbox-box"></div>
+                            <span style="font-size: 13px; color: #64748b;">Remember me</span>
+                        </div>
+                        <span style="font-size: 13px; color: #2563eb; font-weight: 600;">Forgot Password?</span>
+                    </div>
+
+                    <div class="wf-button">Login</div>
+
+                    <div style="margin: 20px 0; text-align: center; color: #94a3b8; font-size: 14px;">OR</div>
+
+                    <div class="wf-button secondary">Login with Google</div>
+
+                    <div style="text-align: center; margin-top: 20px; font-size: 14px; color: #64748b;">
+                        Don't have an account? <span style="color: #2563eb; font-weight: 600;">Sign Up</span>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Email or phone login</li>
+                            <li>Social login (Google)</li>
+                            <li>Remember me (30 days)</li>
+                            <li>Password reset flow</li>
+                            <li>Rate limiting (5 attempts)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>3. Owner Dashboard</h2>
+
+        <div class="screen-grid">
+            <!-- Screen 6: Dashboard Overview -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">3.1 Dashboard Overview</div>
+                    <div class="wireframe-subtitle">Route: /owner/dashboard</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 24px; font-weight: 700; color: #1e293b;">Welcome back, John!</div>
+                        <div style="font-size: 14px; color: #64748b;">Here's what's happening with your properties</div>
+                    </div>
+
+                    <div class="wf-stats-grid">
+                        <div class="wf-stat-card">
+                            <div class="wf-stat-value">12</div>
+                            <div class="wf-stat-label">Total Bookings</div>
+                        </div>
+                        <div class="wf-stat-card">
+                            <div class="wf-stat-value">3</div>
+                            <div class="wf-stat-label">Active Properties</div>
+                        </div>
+                        <div class="wf-stat-card">
+                            <div class="wf-stat-value">₹45,000</div>
+                            <div class="wf-stat-label">Monthly Revenue</div>
+                        </div>
+                        <div class="wf-stat-card">
+                            <div class="wf-stat-value">4.5</div>
+                            <div class="wf-stat-label">Avg Rating</div>
+                        </div>
+                    </div>
+
+                    <div class="wf-tabs">
+                        <div class="wf-tab active">Overview</div>
+                        <div class="wf-tab">Properties</div>
+                        <div class="wf-tab">Bookings</div>
+                        <div class="wf-tab">Analytics</div>
+                    </div>
+
+                    <div class="wf-card">
+                        <div style="font-weight: 600; margin-bottom: 10px;">Recent Bookings</div>
+                        <div style="height: 80px; background: #f8fafc; border-radius: 4px;"></div>
+                    </div>
+
+                    <div class="wf-button">+ Add New Property</div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Real-time stats</li>
+                            <li>Quick actions</li>
+                            <li>Recent activity feed</li>
+                            <li>Revenue graphs</li>
+                            <li>Notifications bell</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 7: User Analytics -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">3.2 User Analytics</div>
+                    <div class="wireframe-subtitle">Route: /owner/analytics</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 24px; font-weight: 700; color: #1e293b;">Analytics</div>
+                        <div style="font-size: 14px; color: #64748b;">Track your property performance</div>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                        <div class="wf-input" style="flex: 1;">Last 7 Days</div>
+                        <div class="wf-input" style="flex: 1;">All Properties</div>
+                    </div>
+
+                    <div class="wf-card">
+                        <div style="font-weight: 600; margin-bottom: 15px;">Visitor Insights</div>
+                        <div class="wf-stats-grid">
+                            <div class="wf-stat-card">
+                                <div class="wf-stat-value">1,234</div>
+                                <div class="wf-stat-label">Page Views</div>
+                            </div>
+                            <div class="wf-stat-card">
+                                <div class="wf-stat-value">342</div>
+                                <div class="wf-stat-label">Unique Visitors</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wf-card">
+                        <div style="font-weight: 600; margin-bottom: 10px;">Booking Conversion</div>
+                        <div style="height: 150px; background: #f8fafc; border-radius: 4px; margin-bottom: 10px;"></div>
+                        <div style="font-size: 13px; color: #64748b;">23% conversion rate</div>
+                    </div>
+
+                    <div class="wf-card">
+                        <div style="font-weight: 600; margin-bottom: 10px;">Popular Properties</div>
+                        <div class="wf-table">
+                            <div class="wf-table-row wf-table-header">
+                                <div>Property</div>
+                                <div>Views</div>
+                                <div>Bookings</div>
+                            </div>
+                            <div class="wf-table-row">
+                                <div class="wf-table-cell">Sunrise PG</div>
+                                <div class="wf-table-cell">456</div>
+                                <div class="wf-table-cell">12</div>
+                            </div>
+                            <div class="wf-table-row">
+                                <div class="wf-table-cell">Comfort Stay</div>
+                                <div class="wf-table-cell">234</div>
+                                <div class="wf-table-cell">8</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Date range selector</li>
+                            <li>Property filter</li>
+                            <li>View/booking ratio</li>
+                            <li>Traffic sources</li>
+                            <li>Export to CSV</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>4. Property Management</h2>
+
+        <div class="screen-grid">
+            <!-- Screen 8: Add New Property - Step 1 -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">4.1 Add Property - Basic Info</div>
+                    <div class="wireframe-subtitle">Route: /owner/property/new/step-1</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Add New Property</div>
+                        <div style="font-size: 14px; color: #64748b;">Step 1 of 4 - Basic Information</div>
+                    </div>
+
+                    <div style="display: flex; gap: 5px; margin-bottom: 30px;">
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #e2e8f0; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #e2e8f0; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #e2e8f0; border-radius: 2px;"></div>
+                    </div>
+
+                    <div class="wf-label">Property Name *</div>
+                    <div class="wf-input">e.g., Sunrise Boys PG</div>
+
+                    <div class="wf-label">PG Type *</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                        <div class="wf-checkbox checked">
+                            <div class="wf-checkbox-box"></div>
+                            Single
+                        </div>
+                        <div class="wf-checkbox">
+                            <div class="wf-checkbox-box"></div>
+                            Double
+                        </div>
+                        <div class="wf-checkbox">
+                            <div class="wf-checkbox-box"></div>
+                            Triple
+                        </div>
+                    </div>
+
+                    <div class="wf-label">Gender *</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                        <div class="wf-checkbox checked">
+                            <div class="wf-checkbox-box"></div>
+                            Male
+                        </div>
+                        <div class="wf-checkbox">
+                            <div class="wf-checkbox-box"></div>
+                            Female
+                        </div>
+                        <div class="wf-checkbox">
+                            <div class="wf-checkbox-box"></div>
+                            Any
+                        </div>
+                    </div>
+
+                    <div class="wf-label">Monthly Rent *</div>
+                    <div class="wf-input">₹ 0</div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div>
+                            <div class="wf-label">Total Rooms *</div>
+                            <div class="wf-input">0</div>
+                        </div>
+                        <div>
+                            <div class="wf-label">Available Rooms *</div>
+                            <div class="wf-input">0</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <div class="wf-button">Continue to Location</div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Validation Rules:</div>
+                        <ul>
+                            <li>Name: 3-100 characters</li>
+                            <li>Rent: minimum ₹1000</li>
+                            <li>Available ≤ Total rooms</li>
+                            <li>All required fields</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 9: Add Property - Step 2 Location -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">4.2 Add Property - Location</div>
+                    <div class="wireframe-subtitle">Route: /owner/property/new/step-2</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Add New Property</div>
+                        <div style="font-size: 14px; color: #64748b;">Step 2 of 4 - Location Details</div>
+                    </div>
+
+                    <div style="display: flex; gap: 5px; margin-bottom: 30px;">
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #e2e8f0; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #e2e8f0; border-radius: 2px;"></div>
+                    </div>
+
+                    <div class="wf-label">Complete Address *</div>
+                    <div class="wf-input">Search or enter address</div>
+
+                    <div class="wf-card" style="height: 150px; display: flex; align-items: center; justify-content: center; color: #94a3b8;">
+                        Map Preview
+                    </div>
+
+                    <div class="wf-label">Street/Locality *</div>
+                    <div class="wf-input">e.g., MG Road, Sector 18</div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div>
+                            <div class="wf-label">City *</div>
+                            <div class="wf-input">City</div>
+                        </div>
+                        <div>
+                            <div class="wf-label">State *</div>
+                            <div class="wf-input">State</div>
+                        </div>
+                    </div>
+
+                    <div class="wf-label">Pincode *</div>
+                    <div class="wf-input">000000</div>
+
+                    <div class="wf-label">Google Maps Link (Optional)</div>
+                    <div class="wf-input">Paste Google Maps URL</div>
+
+                    <div style="margin-top: 20px; display: flex; gap: 10px;">
+                        <div class="wf-button secondary" style="flex: 1;">Back</div>
+                        <div class="wf-button" style="flex: 2;">Continue</div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Google Places autocomplete</li>
+                            <li>Pin location on map</li>
+                            <li>Auto-fill city/state from pincode</li>
+                            <li>Validate Google Maps URL</li>
+                            <li>Street view preview</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 10: Add Property - Step 3 Amenities -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">4.3 Add Property - Amenities</div>
+                    <div class="wireframe-subtitle">Route: /owner/property/new/step-3</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Add New Property</div>
+                        <div style="font-size: 14px; color: #64748b;">Step 3 of 4 - Amenities & Features</div>
+                    </div>
+
+                    <div style="display: flex; gap: 5px; margin-bottom: 30px;">
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #e2e8f0; border-radius: 2px;"></div>
+                    </div>
+
+                    <div class="wf-label">Select Amenities</div>
+                    <div class="wf-checkbox-group">
+                        <div class="wf-checkbox checked">
+                            <div class="wf-checkbox-box"></div>
+                            WiFi
+                        </div>
+                        <div class="wf-checkbox checked">
+                            <div class="wf-checkbox-box"></div>
+                            AC
+                        </div>
+                        <div class="wf-checkbox">
+                            <div class="wf-checkbox-box"></div>
+                            Laundry
+                        </div>
+                        <div class="wf-checkbox checked">
+                            <div class="wf-checkbox-box"></div>
+                            Meals
+                        </div>
+                        <div class="wf-checkbox">
+                            <div class="wf-checkbox-box"></div>
+                            Parking
+                        </div>
+                        <div class="wf-checkbox">
+                            <div class="wf-checkbox-box"></div>
+                            TV
+                        </div>
+                        <div class="wf-checkbox checked">
+                            <div class="wf-checkbox-box"></div>
+                            Fridge
+                        </div>
+                        <div class="wf-checkbox">
+                            <div class="wf-checkbox-box"></div>
+                            Gym
+                        </div>
+                        <div class="wf-checkbox">
+                            <div class="wf-checkbox-box"></div>
+                            CCTV
+                        </div>
+                        <div class="wf-checkbox checked">
+                            <div class="wf-checkbox-box"></div>
+                            Power Backup
+                        </div>
+                    </div>
+
+                    <div class="wf-label">Property Description</div>
+                    <div class="wf-textarea">Describe your property, nearby landmarks, house rules...</div>
+
+                    <div style="margin-top: 20px; display: flex; gap: 10px;">
+                        <div class="wf-button secondary" style="flex: 1;">Back</div>
+                        <div class="wf-button" style="flex: 2;">Continue</div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Searchable amenities</li>
+                            <li>Popular amenities first</li>
+                            <li>Character count (500 max)</li>
+                            <li>Rich text editor (optional)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 11: Add Property - Step 4 Photos -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">4.4 Add Property - Photos</div>
+                    <div class="wireframe-subtitle">Route: /owner/property/new/step-4</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Add New Property</div>
+                        <div style="font-size: 14px; color: #64748b;">Step 4 of 4 - Upload Photos</div>
+                    </div>
+
+                    <div style="display: flex; gap: 5px; margin-bottom: 30px;">
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 4px; background: #2563eb; border-radius: 2px;"></div>
+                    </div>
+
+                    <div class="wf-upload-area">
+                        <div class="wf-upload-icon"></div>
+                        <div style="font-weight: 600; color: #1e293b;">Drop images here</div>
+                        <div style="font-size: 13px;">or click to browse</div>
+                        <div style="font-size: 12px; color: #94a3b8;">Max 10 images, 5MB each</div>
+                    </div>
+
+                    <div class="wf-label">Uploaded Photos (3)</div>
+                    <div class="wf-image-grid">
+                        <div class="wf-image-preview" style="position: relative;">
+                            <div style="position: absolute; top: 8px; right: 8px; width: 24px; height: 24px; background: white; border-radius: 50%;"></div>
+                            <div style="position: absolute; bottom: 8px; left: 8px; background: #2563eb; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px;">Cover</div>
+                        </div>
+                        <div class="wf-image-preview" style="position: relative;">
+                            <div style="position: absolute; top: 8px; right: 8px; width: 24px; height: 24px; background: white; border-radius: 50%;"></div>
+                        </div>
+                        <div class="wf-image-preview" style="position: relative;">
+                            <div style="position: absolute; top: 8px; right: 8px; width: 24px; height: 24px; background: white; border-radius: 50%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="flow-note">
+                        <div class="flow-note-title">Photo Guidelines</div>
+                        <div class="flow-note-content">
+                            <ul>
+                                <li>Add at least 3 photos (recommended 5-10)</li>
+                                <li>First photo will be the cover image</li>
+                                <li>Drag to reorder photos</li>
+                                <li>Supported: JPG, PNG, WebP</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px; display: flex; gap: 10px;">
+                        <div class="wf-button secondary" style="flex: 1;">Back</div>
+                        <div class="wf-button success" style="flex: 2;">Publish Property</div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Drag & drop upload</li>
+                            <li>Image compression</li>
+                            <li>Drag to reorder</li>
+                            <li>Set cover photo</li>
+                            <li>Delete uploaded images</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 12: My Properties List -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">4.5 My Properties</div>
+                    <div class="wireframe-subtitle">Route: /owner/properties</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div>
+                            <div style="font-size: 24px; font-weight: 700; color: #1e293b;">My Properties</div>
+                            <div style="font-size: 14px; color: #64748b;">Manage all your listings</div>
+                        </div>
+                        <div class="wf-button" style="width: auto; padding: 0 20px;">+ Add Property</div>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                        <div class="wf-input" style="flex: 1;">Search properties...</div>
+                        <div class="wf-input" style="width: 150px;">All Status</div>
+                    </div>
+
+                    <div class="wf-card">
+                        <div style="display: flex; gap: 15px;">
+                            <div style="width: 120px; height: 90px; background: #e2e8f0; border-radius: 6px; flex-shrink: 0;"></div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+                                    <div>
+                                        <div style="font-weight: 600; color: #1e293b; font-size: 16px; margin-bottom: 4px;">Sunrise Boys PG</div>
+                                        <div style="font-size: 13px; color: #64748b;">MG Road, Bangalore</div>
+                                    </div>
+                                    <div class="wf-badge success">Active</div>
+                                </div>
+                                <div style="display: flex; gap: 15px; margin-bottom: 10px; font-size: 13px; color: #64748b;">
+                                    <div>₹8,000/month</div>
+                                    <div>•</div>
+                                    <div>5/10 rooms</div>
+                                    <div>•</div>
+                                    <div>⭐ 4.5</div>
+                                </div>
+                                <div style="display: flex; gap: 8px;">
+                                    <div style="padding: 6px 12px; background: #f1f5f9; border-radius: 4px; font-size: 12px; color: #475569; font-weight: 500;">Edit</div>
+                                    <div style="padding: 6px 12px; background: #f1f5f9; border-radius: 4px; font-size: 12px; color: #475569; font-weight: 500;">View</div>
+                                    <div style="padding: 6px 12px; background: #fef2f2; border-radius: 4px; font-size: 12px; color: #dc2626; font-weight: 500;">Deactivate</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wf-card">
+                        <div style="display: flex; gap: 15px;">
+                            <div style="width: 120px; height: 90px; background: #e2e8f0; border-radius: 6px; flex-shrink: 0;"></div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+                                    <div>
+                                        <div style="font-weight: 600; color: #1e293b; font-size: 16px; margin-bottom: 4px;">Comfort Stay PG</div>
+                                        <div style="font-size: 13px; color: #64748b;">HSR Layout, Bangalore</div>
+                                    </div>
+                                    <div class="wf-badge warning">Pending</div>
+                                </div>
+                                <div style="display: flex; gap: 15px; margin-bottom: 10px; font-size: 13px; color: #64748b;">
+                                    <div>₹12,000/month</div>
+                                    <div>•</div>
+                                    <div>0/8 rooms</div>
+                                    <div>•</div>
+                                    <div>⭐ 4.8</div>
+                                </div>
+                                <div style="display: flex; gap: 8px;">
+                                    <div style="padding: 6px 12px; background: #f1f5f9; border-radius: 4px; font-size: 12px; color: #475569; font-weight: 500;">Edit</div>
+                                    <div style="padding: 6px 12px; background: #f1f5f9; border-radius: 4px; font-size: 12px; color: #475569; font-weight: 500;">View</div>
+                                    <div style="padding: 6px 12px; background: #ecfdf5; border-radius: 4px; font-size: 12px; color: #059669; font-weight: 500;">Activate</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Search & filter properties</li>
+                            <li>Quick edit/view/delete</li>
+                            <li>Status toggle (active/inactive)</li>
+                            <li>Booking count</li>
+                            <li>Bulk actions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>5. Owner Profile</h2>
+
+        <div class="screen-grid">
+            <!-- Screen 13: Owner Profile -->
+            <div class="wireframe">
+                <div class="wireframe-header">
+                    <div class="wireframe-title">5.1 Owner Profile</div>
+                    <div class="wireframe-subtitle">Route: /owner/profile</div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-navbar">
+                        <div class="wf-logo"></div>
+                        <div class="wf-nav-items">
+                            <div class="wf-nav-item"></div>
+                            <div class="wf-nav-item"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 30px;">
+                        <div style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 20px;">My Profile</div>
+
+                        <div class="wf-card">
+                            <div style="display: flex; gap: 20px; align-items: start;">
+                                <div style="width: 100px; height: 100px; background: #e2e8f0; border-radius: 50%; flex-shrink: 0;"></div>
+                                <div style="flex: 1;">
+                                    <div style="font-size: 20px; font-weight: 600; color: #1e293b; margin-bottom: 4px;">John Doe</div>
+                                    <div style="font-size: 14px; color: #64748b; margin-bottom: 12px;">john@example.com • +91 98765 43210</div>
+                                    <div class="wf-badge info">Verified Owner</div>
+                                </div>
+                                <div style="padding: 8px 16px; background: #f1f5f9; border-radius: 6px; font-size: 14px; color: #475569; font-weight: 500;">Edit Profile</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wf-tabs">
+                        <div class="wf-tab active">Personal Info</div>
+                        <div class="wf-tab">Security</div>
+                        <div class="wf-tab">Notifications</div>
+                    </div>
+
+                    <div class="wf-label">Full Name</div>
+                    <div class="wf-input">John Doe</div>
+
+                    <div class="wf-label">Email Address</div>
+                    <div class="wf-input">john@example.com</div>
+
+                    <div class="wf-label">Phone Number</div>
+                    <div class="wf-input">+91 98765 43210</div>
+
+                    <div class="wf-label">Address</div>
+                    <div class="wf-textarea">Complete address...</div>
+
+                    <div class="wf-label">Languages Spoken</div>
+                    <div class="wf-input">English, Hindi, Kannada</div>
+
+                    <div class="wf-button">Save Changes</div>
+
+                    <div class="annotations">
+                        <div class="annotations-title">Key Features:</div>
+                        <ul>
+                            <li>Profile photo upload</li>
+                            <li>Email verification badge</li>
+                            <li>Phone verification badge</li>
+                            <li>Change password</li>
+                            <li>Notification preferences</li>
+                            <li>Delete account option</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>6. Design Specifications</h2>
+
+        <div class="flow-note">
+            <div class="flow-note-title">Color Palette</div>
+            <div class="flow-note-content">
+                <strong>Primary Colors:</strong>
+                <ul>
+                    <li>Primary Blue: #2563eb</li>
+                    <li>Primary Dark: #1e40af</li>
+                    <li>Primary Light: #dbeafe</li>
+                </ul>
+                <strong>Neutral Colors:</strong>
+                <ul>
+                    <li>Text Primary: #1e293b</li>
+                    <li>Text Secondary: #64748b</li>
+                    <li>Text Muted: #94a3b8</li>
+                    <li>Border: #e2e8f0</li>
+                    <li>Background: #f8fafc</li>
+                </ul>
+                <strong>Status Colors:</strong>
+                <ul>
+                    <li>Success: #10b981 (Active, Confirmed)</li>
+                    <li>Warning: #f59e0b (Pending, Review)</li>
+                    <li>Error: #ef4444 (Inactive, Cancelled)</li>
+                    <li>Info: #3b82f6 (Verified, Featured)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-note">
+            <div class="flow-note-title">Typography</div>
+            <div class="flow-note-content">
+                <strong>Font Family:</strong> -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif
+                <br><br>
+                <strong>Font Sizes:</strong>
+                <ul>
+                    <li>H1: 32px (Page Titles)</li>
+                    <li>H2: 24px (Section Headers)</li>
+                    <li>H3: 20px (Card Titles)</li>
+                    <li>Body: 14px (Regular Text)</li>
+                    <li>Small: 13px (Labels, Captions)</li>
+                    <li>Tiny: 12px (Badges, Tags)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-note">
+            <div class="flow-note-title">Component Specifications</div>
+            <div class="flow-note-content">
+                <strong>Buttons:</strong>
+                <ul>
+                    <li>Height: 48px (Primary), 40px (Secondary)</li>
+                    <li>Border Radius: 6px</li>
+                    <li>Padding: 0 24px</li>
+                    <li>Font Weight: 600</li>
+                </ul>
+                <strong>Input Fields:</strong>
+                <ul>
+                    <li>Height: 45px</li>
+                    <li>Border: 2px solid #e2e8f0</li>
+                    <li>Border Radius: 6px</li>
+                    <li>Focus: border-color #2563eb</li>
+                </ul>
+                <strong>Cards:</strong>
+                <ul>
+                    <li>Border: 2px solid #e2e8f0</li>
+                    <li>Border Radius: 8px</li>
+                    <li>Padding: 20px</li>
+                    <li>Box Shadow: 0 1px 3px rgba(0,0,0,0.1)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

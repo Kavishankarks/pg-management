@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookPG - Design System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-size: 36px;
+        }
+
+        h2 {
+            color: #2563eb;
+            margin: 50px 0 25px;
+            font-size: 28px;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 12px;
+        }
+
+        h3 {
+            color: #334155;
+            margin: 30px 0 15px;
+            font-size: 22px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 18px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .grid {
+            display: grid;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .grid-5 {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .color-box {
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .color-info {
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        .color-code {
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .card-title {
+            font-weight: 700;
+            color: #1e293b;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .card-description {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .component-showcase {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .component-title {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .button-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: #1e40af;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+        }
+
+        .button-secondary {
+            background: white;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .button-secondary:hover {
+            background: #eff6ff;
+        }
+
+        .button-success {
+            background: #10b981;
+            color: white;
+        }
+
+        .button-success:hover {
+            background: #059669;
+        }
+
+        .button-danger {
+            background: #ef4444;
+            color: white;
+        }
+
+        .button-danger:hover {
+            background: #dc2626;
+        }
+
+        .button-sm {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+
+        .button-lg {
+            padding: 16px 32px;
+            font-size: 16px;
+        }
+
+        .input-example {
+            width: 100%;
+            height: 48px;
+            padding: 0 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.2s;
+            margin-bottom: 12px;
+        }
+
+        .input-example:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+        }
+
+        .typography-example {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-left: 4px solid #2563eb;
+        }
+
+        .spacing-box {
+            background: #dbeafe;
+            border: 2px dashed #2563eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e40af;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        td {
+            color: #64748b;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #ef4444;
+        }
+
+        .note {
+            background: #f0f9ff;
+            border-left: 4px solid #2563eb;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 6px;
+        }
+
+        .note-title {
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .note-content {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .badge-success {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .badge-warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-danger {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .badge-info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .icon-box {
+            text-align: center;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .icon-placeholder {
+            width: 48px;
+            height: 48px;
+            background: #2563eb;
+            border-radius: 8px;
+            margin: 0 auto 10px;
+        }
+
+        .icon-label {
+            font-size: 12px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BookPG Design System</h1>
+        <p class="subtitle">
+            A comprehensive design system for the BookPG platform covering colors, typography, components, and design patterns.
+            This guide ensures consistency across all user interfaces (User, Owner, and Admin).
+        </p>
+
+        <h2>1. Brand Identity</h2>
+
+        <div class="section">
+            <h3>Logo & Brand Colors</h3>
+            <div class="note">
+                <div class="note-title">Brand Essence</div>
+                <div class="note-content">
+                    <strong>Mission:</strong> Simplify PG accommodation discovery and booking<br>
+                    <strong>Values:</strong> Trust, Transparency, Convenience, Community<br>
+                    <strong>Voice:</strong> Friendly, helpful, professional, approachable
+                </div>
+            </div>
+        </div>
+
+        <h2>2. Color Palette</h2>
+
+        <div class="section">
+            <h3>Primary Colors</h3>
+            <div class="grid grid-4">
+                <div class="color-box" style="background: #2563eb;">
+                    Primary Blue
+                    <div class="color-info">Main CTA & Links</div>
+                    <div class="color-code">#2563eb</div>
+                </div>
+                <div class="color-box" style="background: #1e40af;">
+                    Primary Dark
+                    <div class="color-info">Hover States</div>
+                    <div class="color-code">#1e40af</div>
+                </div>
+                <div class="color-box" style="background: #3b82f6;">
+                    Primary Light
+                    <div class="color-info">Accents</div>
+                    <div class="color-code">#3b82f6</div>
+                </div>
+                <div class="color-box" style="background: #dbeafe; color: #1e40af;">
+                    Primary Pale
+                    <div class="color-info">Backgrounds</div>
+                    <div class="color-code">#dbeafe</div>
+                </div>
+            </div>
+
+            <h3>Neutral Colors</h3>
+            <div class="grid grid-5">
+                <div class="color-box" style="background: #1e293b;">
+                    Text Primary
+                    <div class="color-info">Headings</div>
+                    <div class="color-code">#1e293b</div>
+                </div>
+                <div class="color-box" style="background: #475569;">
+                    Text Secondary
+                    <div class="color-info">Body Text</div>
+                    <div class="color-code">#475569</div>
+                </div>
+                <div class="color-box" style="background: #64748b;">
+                    Text Muted
+                    <div class="color-info">Captions</div>
+                    <div class="color-code">#64748b</div>
+                </div>
+                <div class="color-box" style="background: #94a3b8;">
+                    Text Disabled
+                    <div class="color-info">Placeholders</div>
+                    <div class="color-code">#94a3b8</div>
+                </div>
+                <div class="color-box" style="background: #cbd5e1;">
+                    Text Light
+                    <div class="color-info">Subtle Text</div>
+                    <div class="color-code">#cbd5e1</div>
+                </div>
+            </div>
+
+            <h3>Background Colors</h3>
+            <div class="grid grid-4">
+                <div class="color-box" style="background: #ffffff; color: #1e293b; border: 2px solid #e2e8f0;">
+                    White
+                    <div class="color-info">Cards, Modals</div>
+                    <div class="color-code">#ffffff</div>
+                </div>
+                <div class="color-box" style="background: #f8fafc; color: #1e293b;">
+                    Background Light
+                    <div class="color-info">Page Background</div>
+                    <div class="color-code">#f8fafc</div>
+                </div>
+                <div class="color-box" style="background: #f1f5f9; color: #1e293b;">
+                    Background Neutral
+                    <div class="color-info">Sections</div>
+                    <div class="color-code">#f1f5f9</div>
+                </div>
+                <div class="color-box" style="background: #e2e8f0; color: #1e293b;">
+                    Border Color
+                    <div class="color-info">Dividers, Borders</div>
+                    <div class="color-code">#e2e8f0</div>
+                </div>
+            </div>
+
+            <h3>Semantic Colors</h3>
+            <div class="grid grid-4">
+                <div class="color-box" style="background: #10b981;">
+                    Success
+                    <div class="color-info">Active, Available</div>
+                    <div class="color-code">#10b981</div>
+                </div>
+                <div class="color-box" style="background: #f59e0b;">
+                    Warning
+                    <div class="color-info">Pending, Caution</div>
+                    <div class="color-code">#f59e0b</div>
+                </div>
+                <div class="color-box" style="background: #ef4444;">
+                    Danger/Error
+                    <div class="color-info">Errors, Inactive</div>
+                    <div class="color-code">#ef4444</div>
+                </div>
+                <div class="color-box" style="background: #3b82f6;">
+                    Info
+                    <div class="color-info">Tips, Notes</div>
+                    <div class="color-code">#3b82f6</div>
+                </div>
+            </div>
+
+            <h3>Admin Colors</h3>
+            <div class="grid grid-3">
+                <div class="color-box" style="background: #7c3aed;">
+                    Admin Primary
+                    <div class="color-info">Admin Portal</div>
+                    <div class="color-code">#7c3aed</div>
+                </div>
+                <div class="color-box" style="background: #6b21a8;">
+                    Admin Dark
+                    <div class="color-info">Admin Accents</div>
+                    <div class="color-code">#6b21a8</div>
+                </div>
+                <div class="color-box" style="background: #f3e8ff; color: #6b21a8;">
+                    Admin Light
+                    <div class="color-info">Admin Backgrounds</div>
+                    <div class="color-code">#f3e8ff</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>3. Typography</h2>
+
+        <div class="section">
+            <h3>Font Family</h3>
+            <div class="card">
+                <div class="card-title">System Font Stack</div>
+                <div class="card-description">
+                    <code>-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif</code>
+                    <br><br>
+                    Using system fonts ensures optimal performance and native feel across different platforms.
+                </div>
+            </div>
+
+            <h3>Type Scale</h3>
+            <div class="typography-example" style="font-size: 36px; font-weight: 700;">
+                H1 - Page Titles (36px, Bold)
+            </div>
+            <div class="typography-example" style="font-size: 28px; font-weight: 700;">
+                H2 - Section Headers (28px, Bold)
+            </div>
+            <div class="typography-example" style="font-size: 22px; font-weight: 600;">
+                H3 - Subsection Headers (22px, Semibold)
+            </div>
+            <div class="typography-example" style="font-size: 18px; font-weight: 600;">
+                H4 - Card Titles (18px, Semibold)
+            </div>
+            <div class="typography-example" style="font-size: 16px; font-weight: 600;">
+                H5 - Component Headers (16px, Semibold)
+            </div>
+            <div class="typography-example" style="font-size: 15px; font-weight: 400;">
+                Body Large - Main Content (15px, Regular)
+            </div>
+            <div class="typography-example" style="font-size: 14px; font-weight: 400;">
+                Body - Default Text (14px, Regular)
+            </div>
+            <div class="typography-example" style="font-size: 13px; font-weight: 400;">
+                Body Small - Supporting Text (13px, Regular)
+            </div>
+            <div class="typography-example" style="font-size: 12px; font-weight: 500;">
+                Caption - Labels, Tags (12px, Medium)
+            </div>
+            <div class="typography-example" style="font-size: 11px; font-weight: 500;">
+                Tiny - Micro Text (11px, Medium)
+            </div>
+
+            <h3>Font Weights</h3>
+            <table>
+                <tr>
+                    <th>Weight</th>
+                    <th>Value</th>
+                    <th>Usage</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>Regular</td>
+                    <td>400</td>
+                    <td>Body text, paragraphs</td>
+                    <td><span style="font-weight: 400;">The quick brown fox</span></td>
+                </tr>
+                <tr>
+                    <td>Medium</td>
+                    <td>500</td>
+                    <td>Labels, captions</td>
+                    <td><span style="font-weight: 500;">The quick brown fox</span></td>
+                </tr>
+                <tr>
+                    <td>Semibold</td>
+                    <td>600</td>
+                    <td>Subheadings, emphasis</td>
+                    <td><span style="font-weight: 600;">The quick brown fox</span></td>
+                </tr>
+                <tr>
+                    <td>Bold</td>
+                    <td>700</td>
+                    <td>Headings, important text</td>
+                    <td><span style="font-weight: 700;">The quick brown fox</span></td>
+                </tr>
+            </table>
+
+            <h3>Line Height</h3>
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Line Height</th>
+                    <th>Usage</th>
+                </tr>
+                <tr>
+                    <td>Headings</td>
+                    <td>1.2</td>
+                    <td>Tight spacing for large text</td>
+                </tr>
+                <tr>
+                    <td>Body Text</td>
+                    <td>1.6</td>
+                    <td>Comfortable reading</td>
+                </tr>
+                <tr>
+                    <td>Captions</td>
+                    <td>1.4</td>
+                    <td>Compact spacing</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>4. Spacing System</h2>
+
+        <div class="section">
+            <h3>Base Unit: 4px</h3>
+            <div class="note">
+                <div class="note-title">8-Point Grid System</div>
+                <div class="note-content">
+                    All spacing values are multiples of 4px (base unit). This creates visual rhythm and makes layouts more consistent.
+                </div>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Token</th>
+                    <th>Value</th>
+                    <th>Usage</th>
+                    <th>Visual</th>
+                </tr>
+                <tr>
+                    <td>xs</td>
+                    <td>4px</td>
+                    <td>Minimal spacing, icon gaps</td>
+                    <td><div class="spacing-box" style="width: 4px; height: 20px;">4</div></td>
+                </tr>
+                <tr>
+                    <td>sm</td>
+                    <td>8px</td>
+                    <td>Tight spacing, form fields</td>
+                    <td><div class="spacing-box" style="width: 8px; height: 20px;">8</div></td>
+                </tr>
+                <tr>
+                    <td>md</td>
+                    <td>12px</td>
+                    <td>Standard gaps</td>
+                    <td><div class="spacing-box" style="width: 12px; height: 20px;">12</div></td>
+                </tr>
+                <tr>
+                    <td>base</td>
+                    <td>16px</td>
+                    <td>Default spacing</td>
+                    <td><div class="spacing-box" style="width: 16px; height: 20px;">16</div></td>
+                </tr>
+                <tr>
+                    <td>lg</td>
+                    <td>20px</td>
+                    <td>Section padding</td>
+                    <td><div class="spacing-box" style="width: 20px; height: 20px;">20</div></td>
+                </tr>
+                <tr>
+                    <td>xl</td>
+                    <td>24px</td>
+                    <td>Card padding</td>
+                    <td><div class="spacing-box" style="width: 24px; height: 20px;">24</div></td>
+                </tr>
+                <tr>
+                    <td>2xl</td>
+                    <td>32px</td>
+                    <td>Section gaps</td>
+                    <td><div class="spacing-box" style="width: 32px; height: 20px;">32</div></td>
+                </tr>
+                <tr>
+                    <td>3xl</td>
+                    <td>40px</td>
+                    <td>Large sections</td>
+                    <td><div class="spacing-box" style="width: 40px; height: 20px;">40</div></td>
+                </tr>
+                <tr>
+                    <td>4xl</td>
+                    <td>48px</td>
+                    <td>Hero sections</td>
+                    <td><div class="spacing-box" style="width: 48px; height: 20px;">48</div></td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>5. Component Library</h2>
+
+        <div class="section">
+            <h3>Buttons</h3>
+            <div class="component-showcase">
+                <div class="component-title">Button Variants</div>
+
+                <div style="margin-bottom: 20px;">
+                    <strong style="color: #1e293b; display: block; margin-bottom: 12px;">Sizes:</strong>
+                    <button class="button button-primary button-sm">Small Button</button>
+                    <button class="button button-primary">Default Button</button>
+                    <button class="button button-primary button-lg">Large Button</button>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <strong style="color: #1e293b; display: block; margin-bottom: 12px;">Styles:</strong>
+                    <button class="button button-primary">Primary</button>
+                    <button class="button button-secondary">Secondary</button>
+                    <button class="button button-success">Success</button>
+                    <button class="button button-danger">Danger</button>
+                </div>
+
+                <table style="margin-top: 20px;">
+                    <tr>
+                        <th>Property</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Height (Default)</td>
+                        <td>48px</td>
+                    </tr>
+                    <tr>
+                        <td>Padding</td>
+                        <td>12px 24px</td>
+                    </tr>
+                    <tr>
+                        <td>Border Radius</td>
+                        <td>8px</td>
+                    </tr>
+                    <tr>
+                        <td>Font Weight</td>
+                        <td>600</td>
+                    </tr>
+                    <tr>
+                        <td>Font Size</td>
+                        <td>15px</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Input Fields</h3>
+            <div class="component-showcase">
+                <div class="component-title">Input Variants</div>
+
+                <input type="text" class="input-example" placeholder="Default Input">
+                <input type="email" class="input-example" placeholder="Email Input" value="user@example.com">
+                <input type="text" class="input-example" placeholder="Error State" style="border-color: #ef4444;">
+
+                <table style="margin-top: 20px;">
+                    <tr>
+                        <th>Property</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Height</td>
+                        <td>48px</td>
+                    </tr>
+                    <tr>
+                        <td>Padding</td>
+                        <td>0 16px</td>
+                    </tr>
+                    <tr>
+                        <td>Border</td>
+                        <td>2px solid #e2e8f0</td>
+                    </tr>
+                    <tr>
+                        <td>Border Radius</td>
+                        <td>8px</td>
+                    </tr>
+                    <tr>
+                        <td>Focus Border</td>
+                        <td>#2563eb</td>
+                    </tr>
+                    <tr>
+                        <td>Error Border</td>
+                        <td>#ef4444</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Badges & Tags</h3>
+            <div class="component-showcase">
+                <div class="component-title">Badge Variants</div>
+
+                <span class="badge badge-success">Available</span>
+                <span class="badge badge-warning">Pending</span>
+                <span class="badge badge-danger">Unavailable</span>
+                <span class="badge badge-info">Verified</span>
+
+                <table style="margin-top: 20px;">
+                    <tr>
+                        <th>Type</th>
+                        <th>Background</th>
+                        <th>Text Color</th>
+                        <th>Usage</th>
+                    </tr>
+                    <tr>
+                        <td>Success</td>
+                        <td>#dcfce7</td>
+                        <td>#166534</td>
+                        <td>Active, Available, Confirmed</td>
+                    </tr>
+                    <tr>
+                        <td>Warning</td>
+                        <td>#fef3c7</td>
+                        <td>#92400e</td>
+                        <td>Pending, In Review</td>
+                    </tr>
+                    <tr>
+                        <td>Danger</td>
+                        <td>#fee2e2</td>
+                        <td>#991b1b</td>
+                        <td>Inactive, Cancelled, Error</td>
+                    </tr>
+                    <tr>
+                        <td>Info</td>
+                        <td>#dbeafe</td>
+                        <td>#1e40af</td>
+                        <td>Verified, Featured</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Cards</h3>
+            <div class="component-showcase">
+                <div class="component-title">Card Component</div>
+
+                <div class="card">
+                    <div class="card-title">Card Title</div>
+                    <div class="card-description">
+                        This is a standard card component with title and description. Cards are used throughout the platform for grouping related content.
+                    </div>
+                </div>
+
+                <table style="margin-top: 20px;">
+                    <tr>
+                        <th>Property</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Padding</td>
+                        <td>24px</td>
+                    </tr>
+                    <tr>
+                        <td>Border</td>
+                        <td>2px solid #e2e8f0</td>
+                    </tr>
+                    <tr>
+                        <td>Border Radius</td>
+                        <td>12px</td>
+                    </tr>
+                    <tr>
+                        <td>Shadow</td>
+                        <td>0 2px 8px rgba(0,0,0,0.05)</td>
+                    </tr>
+                    <tr>
+                        <td>Hover Shadow</td>
+                        <td>0 4px 16px rgba(0,0,0,0.1)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <h2>6. Responsive Breakpoints</h2>
+
+        <div class="section">
+            <table>
+                <tr>
+                    <th>Breakpoint</th>
+                    <th>Width</th>
+                    <th>Columns</th>
+                    <th>Usage</th>
+                </tr>
+                <tr>
+                    <td>Mobile (xs)</td>
+                    <td>320px - 639px</td>
+                    <td>1 column</td>
+                    <td>Mobile phones</td>
+                </tr>
+                <tr>
+                    <td>Tablet (sm)</td>
+                    <td>640px - 767px</td>
+                    <td>2 columns</td>
+                    <td>Small tablets</td>
+                </tr>
+                <tr>
+                    <td>Tablet (md)</td>
+                    <td>768px - 1023px</td>
+                    <td>2-3 columns</td>
+                    <td>Tablets, small laptops</td>
+                </tr>
+                <tr>
+                    <td>Desktop (lg)</td>
+                    <td>1024px - 1279px</td>
+                    <td>3-4 columns</td>
+                    <td>Laptops, desktops</td>
+                </tr>
+                <tr>
+                    <td>Desktop (xl)</td>
+                    <td>1280px+</td>
+                    <td>4+ columns</td>
+                    <td>Large desktops</td>
+                </tr>
+            </table>
+
+            <div class="note">
+                <div class="note-title">Mobile-First Approach</div>
+                <div class="note-content">
+                    Design for mobile screens first, then progressively enhance for larger screens. This ensures optimal performance and usability on all devices.
+                </div>
+            </div>
+        </div>
+
+        <h2>7. Icons & Imagery</h2>
+
+        <div class="section">
+            <h3>Icon System</h3>
+            <div class="note">
+                <div class="note-title">Recommended Icon Library</div>
+                <div class="note-content">
+                    <strong>Lucide React</strong> - Modern, consistent, open-source icon set<br>
+                    <strong>Alternative:</strong> Heroicons, Feather Icons<br>
+                    <strong>Sizes:</strong> 16px (small), 20px (default), 24px (medium), 32px (large)
+                </div>
+            </div>
+
+            <div class="icon-grid">
+                <div class="icon-box">
+                    <div class="icon-placeholder"></div>
+                    <div class="icon-label">Search</div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon-placeholder"></div>
+                    <div class="icon-label">User</div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon-placeholder"></div>
+                    <div class="icon-label">Home</div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon-placeholder"></div>
+                    <div class="icon-label">Heart</div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon-placeholder"></div>
+                    <div class="icon-label">Location</div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon-placeholder"></div>
+                    <div class="icon-label">Calendar</div>
+                </div>
+            </div>
+
+            <h3>Image Guidelines</h3>
+            <table>
+                <tr>
+                    <th>Image Type</th>
+                    <th>Aspect Ratio</th>
+                    <th>Max Size</th>
+                    <th>Format</th>
+                </tr>
+                <tr>
+                    <td>Property Cover</td>
+                    <td>16:9</td>
+                    <td>2MB</td>
+                    <td>JPG, WebP</td>
+                </tr>
+                <tr>
+                    <td>Property Gallery</td>
+                    <td>4:3 or 16:9</td>
+                    <td>2MB each</td>
+                    <td>JPG, WebP</td>
+                </tr>
+                <tr>
+                    <td>Profile Photo</td>
+                    <td>1:1 (Square)</td>
+                    <td>1MB</td>
+                    <td>JPG, PNG</td>
+                </tr>
+                <tr>
+                    <td>Thumbnails</td>
+                    <td>16:9</td>
+                    <td>500KB</td>
+                    <td>JPG, WebP</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>8. Accessibility Guidelines</h2>
+
+        <div class="section">
+            <div class="note">
+                <div class="note-title">WCAG 2.1 AA Compliance</div>
+                <div class="note-content">
+                    All interfaces should meet WCAG 2.1 Level AA standards for accessibility.
+                </div>
+            </div>
+
+            <h3>Color Contrast</h3>
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Minimum Ratio</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>Body Text</td>
+                    <td>4.5:1</td>
+                    <td>#475569 on #ffffff (7.4:1) ✓</td>
+                </tr>
+                <tr>
+                    <td>Large Text (18px+)</td>
+                    <td>3:1</td>
+                    <td>#64748b on #ffffff (5.2:1) ✓</td>
+                </tr>
+                <tr>
+                    <td>UI Components</td>
+                    <td>3:1</td>
+                    <td>#2563eb on #ffffff (4.8:1) ✓</td>
+                </tr>
+            </table>
+
+            <h3>Keyboard Navigation</h3>
+            <ul style="color: #475569; line-height: 2; margin: 15px 0;">
+                <li>All interactive elements must be keyboard accessible</li>
+                <li>Focus indicators must be visible (outline or border)</li>
+                <li>Tab order should follow logical flow</li>
+                <li>Skip links for navigation</li>
+            </ul>
+
+            <h3>Screen Reader Support</h3>
+            <ul style="color: #475569; line-height: 2; margin: 15px 0;">
+                <li>Proper semantic HTML (headings, nav, main, etc.)</li>
+                <li>ARIA labels for interactive elements</li>
+                <li>Alt text for all images</li>
+                <li>Form labels properly associated</li>
+            </ul>
+        </div>
+
+        <h2>9. Animation & Transitions</h2>
+
+        <div class="section">
+            <h3>Timing</h3>
+            <table>
+                <tr>
+                    <th>Duration</th>
+                    <th>Usage</th>
+                    <th>Easing</th>
+                </tr>
+                <tr>
+                    <td>100ms</td>
+                    <td>Micro-interactions (hover, focus)</td>
+                    <td>ease-in-out</td>
+                </tr>
+                <tr>
+                    <td>200ms</td>
+                    <td>Standard transitions</td>
+                    <td>ease-in-out</td>
+                </tr>
+                <tr>
+                    <td>300ms</td>
+                    <td>Complex animations</td>
+                    <td>ease-out</td>
+                </tr>
+                <tr>
+                    <td>500ms</td>
+                    <td>Page transitions</td>
+                    <td>ease-in-out</td>
+                </tr>
+            </table>
+
+            <div class="note">
+                <div class="note-title">Performance Tip</div>
+                <div class="note-content">
+                    Use CSS transforms and opacity for animations (GPU accelerated). Avoid animating layout properties like width, height, or margin.
+                </div>
+            </div>
+        </div>
+
+        <h2>10. Implementation Notes</h2>
+
+        <div class="section">
+            <div class="note">
+                <div class="note-title">CSS Framework Recommendation</div>
+                <div class="note-content">
+                    <strong>Tailwind CSS</strong> - Utility-first CSS framework (currently used)<br>
+                    Provides flexibility and consistency with predefined utility classes matching this design system.
+                </div>
+            </div>
+
+            <div class="note">
+                <div class="note-title">Component Library Recommendation</div>
+                <div class="note-content">
+                    <strong>Headless UI</strong> or <strong>Radix UI</strong> - Unstyled, accessible components<br>
+                    Provides accessibility features out of the box while allowing full design control.
+                </div>
+            </div>
+
+            <h3>CSS Custom Properties</h3>
+            <div style="background: #1e293b; color: #f1f5f9; padding: 20px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.8; overflow-x: auto;">
+:root {<br>
+&nbsp;&nbsp;/* Colors */<br>
+&nbsp;&nbsp;--color-primary: #2563eb;<br>
+&nbsp;&nbsp;--color-primary-dark: #1e40af;<br>
+&nbsp;&nbsp;--color-success: #10b981;<br>
+&nbsp;&nbsp;--color-warning: #f59e0b;<br>
+&nbsp;&nbsp;--color-danger: #ef4444;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;/* Typography */<br>
+&nbsp;&nbsp;--font-size-base: 14px;<br>
+&nbsp;&nbsp;--font-weight-normal: 400;<br>
+&nbsp;&nbsp;--font-weight-semibold: 600;<br>
+&nbsp;&nbsp;--font-weight-bold: 700;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;/* Spacing */<br>
+&nbsp;&nbsp;--spacing-xs: 4px;<br>
+&nbsp;&nbsp;--spacing-sm: 8px;<br>
+&nbsp;&nbsp;--spacing-md: 12px;<br>
+&nbsp;&nbsp;--spacing-base: 16px;<br>
+&nbsp;&nbsp;--spacing-lg: 20px;<br>
+&nbsp;&nbsp;--spacing-xl: 24px;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;/* Border Radius */<br>
+&nbsp;&nbsp;--radius-sm: 4px;<br>
+&nbsp;&nbsp;--radius-md: 6px;<br>
+&nbsp;&nbsp;--radius-lg: 8px;<br>
+&nbsp;&nbsp;--radius-xl: 12px;<br>
+}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
