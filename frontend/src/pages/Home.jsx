@@ -10,6 +10,7 @@ const Home = () => {
     minPrice: '',
     maxPrice: '',
   });
+  const [showFilters, setShowFilters] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -44,6 +45,19 @@ const Home = () => {
     { icon: <Car className="h-6 w-6" />, name: 'Parking' },
     { icon: <Utensils className="h-6 w-6" />, name: 'Food' },
   ];
+
+  const popularCities = [
+    { name: 'Bangalore', image: '🏙️', count: '250+' },
+    { name: 'Mumbai', image: '🌆', count: '180+' },
+    { name: 'Delhi', image: '🏛️', count: '200+' },
+    { name: 'Hyderabad', image: '💎', count: '150+' },
+    { name: 'Chennai', image: '🏖️', count: '120+' },
+    { name: 'Pune', image: '🎓', count: '140+' },
+  ];
+
+  const handleCityClick = (cityName) => {
+    navigate(`/pgs?city=${cityName}`);
+  };
 
   return (
     <div>
@@ -80,10 +94,12 @@ const Home = () => {
                   onChange={(e) =>
                     setSearchQuery({ ...searchQuery, search: e.target.value })
                   }
+                  onFocus={() => setShowFilters(true)}
                   className="input-field text-gray-800 text-lg"
                 />
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              {showFilters && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 animate-fade-in">
                 <div>
                   <input
                     type="text"
@@ -118,6 +134,7 @@ const Home = () => {
                   />
                 </div>
               </div>
+              )}
               <button
                 type="submit"
                 className="w-full bg-gradient-to-r from-primary-600 via-primary-700 to-accent-600 text-white py-4 rounded-xl hover:from-primary-700 hover:via-primary-800 hover:to-accent-700 transition-all duration-300 flex items-center justify-center space-x-2 font-semibold shadow-lg hover:shadow-glow transform hover:scale-[1.02] active:scale-95"
@@ -126,6 +143,36 @@ const Home = () => {
                 <span>Search PGs</span>
               </button>
             </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Cities Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+              <span className="gradient-text">Explore PGs in Top Cities</span>
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Find the perfect accommodation in India's major metropolitan cities
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+            {popularCities.map((city, index) => (
+              <button
+                key={index}
+                onClick={() => handleCityClick(city.name)}
+                className="card-gradient text-center group cursor-pointer transform hover:scale-105 transition-all duration-300"
+                style={{animationDelay: `${index * 0.05}s`}}
+              >
+                <div className="text-5xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                  {city.image}
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-1">{city.name}</h3>
+                <p className="text-sm text-primary-600 font-semibold">{city.count} PGs</p>
+              </button>
+            ))}
           </div>
         </div>
       </section>
